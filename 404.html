@@ -76,7 +76,7 @@
       if (j < 0) j = ar.indexOf(c)
       out += j >= 0 ? String(j) : c
     }
-    return out.replace(/s+/g, '').toUpperCase()
+    return out.replace(/\s+/g, '').toUpperCase()
   }
   async function tryOpen() {
     var v = normalize(pw.value || '')
