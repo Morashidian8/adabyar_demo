@@ -67,8 +67,19 @@
       return b.toString(16).padStart(2, '0')
     }).join('')
   }
+  /* صفحه‌کلیدِ فارسی ارقام را به‌شکلِ ۱۲۳ می‌فرستد، نه 123.
+     پیش از مقایسه، ارقامِ فارسی و عربی را به لاتین برمی‌گردانیم. */
+  function normalize(s) {
+    var fa = '۰۱۲۳۴۵۶۷۸۹', ar = '٠١٢٣٤٥٦٧٨٩', out = ''
+    for (var i = 0; i < s.length; i++) {
+      var c = s[i], j = fa.indexOf(c)
+      if (j < 0) j = ar.indexOf(c)
+      out += j >= 0 ? String(j) : c
+    }
+    return out.replace(/s+/g, '').toUpperCase()
+  }
   async function tryOpen() {
-    var v = (pw.value || '').trim().toUpperCase()
+    var v = normalize(pw.value || '')
     if (!v) return
     if (await hash(v) === DIGEST) open()
     else { err.textContent = 'رمز درست نیست.'; pw.value = ''; pw.focus() }
