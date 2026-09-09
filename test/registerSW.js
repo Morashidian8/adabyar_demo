@@ -1,0 +1,1 @@
+if('serviceWorker' in navigator) {window.addEventListener('load', () => {navigator.serviceWorker.register('/adabyar_demo/test/sw.js', { scope: '/adabyar_demo/test/' })})}

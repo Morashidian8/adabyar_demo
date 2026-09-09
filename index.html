@@ -8,9 +8,9 @@
     <link rel="icon" type="image/svg+xml" href="./favicon.svg" />
     <link rel="apple-touch-icon" href="./icon-192.png" />
     <title>ادب‌یار — آموزش ادبیات فارسی</title>
-    <script type="module" crossorigin src="/adabyar_demo/assets/index-DGf5yYAW.js"></script>
+    <script type="module" crossorigin src="/adabyar_demo/assets/index-Cv6CsleC.js"></script>
     <link rel="modulepreload" crossorigin href="/adabyar_demo/assets/ui-BCAwKH9Z.js">
-    <link rel="stylesheet" crossorigin href="/adabyar_demo/assets/index-DXLIpYD2.css">
+    <link rel="stylesheet" crossorigin href="/adabyar_demo/assets/index-DI9CDPkn.css">
   <link rel="manifest" href="/adabyar_demo/manifest.webmanifest"><script id="vite-plugin-pwa:register-sw" src="/adabyar_demo/registerSW.js"></script>
 <style>
   #gate{position:fixed;inset:0;z-index:99999;display:flex;align-items:center;justify-content:center;
@@ -61,22 +61,23 @@
     root.classList.remove('locked')
     gate.remove()
   }
-  async function hash(s) {
-    var buf = await crypto.subtle.digest('SHA-256', new TextEncoder().encode(s))
-    return Array.from(new Uint8Array(buf)).map(function (b) {
-      return b.toString(16).padStart(2, '0')
-    }).join('')
-  }
-  /* صفحه‌کلیدِ فارسی ارقام را به‌شکلِ ۱۲۳ می‌فرستد، نه 123.
-     پیش از مقایسه، ارقامِ فارسی و عربی را به لاتین برمی‌گردانیم. */
+  /* صفحه‌کلیدِ فارسی ارقام را به‌شکلِ ۱۲۳ می‌فرستد، نه 123. */
   function normalize(s) {
-    var fa = '۰۱۲۳۴۵۶۷۸۹', ar = '٠١٢٣٤٥٦٧٨٩', out = ''
+    var fa = '۰۱۲۳۴۵۶۷۸۹'
+    var ar = '٠١٢٣٤٥٦٧٨٩'
+    var out = ''
     for (var i = 0; i < s.length; i++) {
       var c = s[i], j = fa.indexOf(c)
       if (j < 0) j = ar.indexOf(c)
       out += j >= 0 ? String(j) : c
     }
-    return out.replace(/\s+/g, '').toUpperCase()
+    return out.replace(/[\s\u200c]+/g, '').toUpperCase()
+  }
+  async function hash(s) {
+    var buf = await crypto.subtle.digest('SHA-256', new TextEncoder().encode(s))
+    return Array.from(new Uint8Array(buf)).map(function (b) {
+      return b.toString(16).padStart(2, '0')
+    }).join('')
   }
   async function tryOpen() {
     var v = normalize(pw.value || '')

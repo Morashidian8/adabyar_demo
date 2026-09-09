@@ -8,10 +8,10 @@
     <link rel="icon" type="image/svg+xml" href="./favicon.svg" />
     <link rel="apple-touch-icon" href="./icon-192.png" />
     <title>ادب‌یار — آموزش ادبیات فارسی</title>
-    <script type="module" crossorigin src="/adabyar_demo/assets/index-Cv6CsleC.js"></script>
-    <link rel="modulepreload" crossorigin href="/adabyar_demo/assets/ui-BCAwKH9Z.js">
-    <link rel="stylesheet" crossorigin href="/adabyar_demo/assets/index-DI9CDPkn.css">
-  <link rel="manifest" href="/adabyar_demo/manifest.webmanifest"><script id="vite-plugin-pwa:register-sw" src="/adabyar_demo/registerSW.js"></script>
+    <script type="module" crossorigin src="/adabyar_demo/test/assets/index-BKWyv-r9.js"></script>
+    <link rel="modulepreload" crossorigin href="/adabyar_demo/test/assets/ui-DTRMGCK4.js">
+    <link rel="stylesheet" crossorigin href="/adabyar_demo/test/assets/index-DiKHTAWA.css">
+  <link rel="manifest" href="/adabyar_demo/test/manifest.webmanifest"><script id="vite-plugin-pwa:register-sw" src="/adabyar_demo/test/registerSW.js"></script>
 <style>
   #gate{position:fixed;inset:0;z-index:99999;display:flex;align-items:center;justify-content:center;
     background:#0f172a;color:#e2e8f0;font-family:system-ui,sans-serif;direction:rtl}
@@ -29,7 +29,7 @@
 <script>
   /* پیش از رنگ‌آمیزیِ صفحه تصمیم می‌گیریم تا اپ لحظه‌ای دیده نشود */
   try {
-    if (localStorage.getItem('adabyar-key') !== "8899c808bfc8e0b2da79fc1a5f777fee448735364cc47f80eee808376e78e1d9") {
+    if (localStorage.getItem('adabyar-key') !== "2383faa30b2cd5da99b10fa2a63117212a23bd589d0d370f8bf034388960beda") {
       document.documentElement.classList.add('locked')
     }
   } catch (e) { document.documentElement.classList.add('locked') }
@@ -40,14 +40,14 @@
   
 <div id="gate" hidden><div class="box">
   <h1>ادب‌یار</h1>
-  <p>برای ورود، رمز را یک بار وارد کنید.<br>روی همین دستگاه به یاد می‌ماند.</p>
+  <p>نسخهٔ آزمایشی و محدود.<br>رمز را یک بار وارد کنید؛ به یاد می‌ماند.</p>
   <input id="pw" type="password" autocomplete="off" placeholder="رمز">
   <button id="go">ورود</button>
   <div class="err" id="err"></div>
 </div></div>
 <script>
 (function () {
-  var DIGEST = "8899c808bfc8e0b2da79fc1a5f777fee448735364cc47f80eee808376e78e1d9"
+  var DIGEST = "2383faa30b2cd5da99b10fa2a63117212a23bd589d0d370f8bf034388960beda"
   var root = document.documentElement
   var gate = document.getElementById('gate')
   if (!root.classList.contains('locked')) { gate.remove(); return }
