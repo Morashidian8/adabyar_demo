@@ -8,7 +8,7 @@
     <link rel="icon" type="image/svg+xml" href="./favicon.svg" />
     <link rel="apple-touch-icon" href="./icon-192.png" />
     <title>ادب‌یار — آموزش ادبیات فارسی</title>
-    <script type="module" crossorigin src="/adabyar_demo/assets/index-C6emqbq9.js"></script>
+    <script type="module" crossorigin src="/adabyar_demo/assets/index-IzaDukgV.js"></script>
     <link rel="modulepreload" crossorigin href="/adabyar_demo/assets/ui-BCAwKH9Z.js">
     <link rel="stylesheet" crossorigin href="/adabyar_demo/assets/index-BaqfmgHt.css">
   <link rel="manifest" href="/adabyar_demo/manifest.webmanifest"><script id="vite-plugin-pwa:register-sw" src="/adabyar_demo/registerSW.js"></script>
@@ -71,7 +71,7 @@
       if (j < 0) j = ar.indexOf(c)
       out += j >= 0 ? String(j) : c
     }
-    return out.replace(/[\s\u200c]+/g, '').toUpperCase()
+    return out.replace(/[\s\u200c-]+/g, '').toUpperCase()
   }
   async function hash(s) {
     var buf = await crypto.subtle.digest('SHA-256', new TextEncoder().encode(s))
