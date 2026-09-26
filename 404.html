@@ -8,9 +8,9 @@
     <link rel="icon" type="image/svg+xml" href="./favicon.svg" />
     <link rel="apple-touch-icon" href="./icon-192.png" />
     <title>ادب‌یار — آموزش ادبیات فارسی</title>
-    <script type="module" crossorigin src="/adabyar_demo/assets/index-CCdyF-Qt.js"></script>
+    <script type="module" crossorigin src="/adabyar_demo/assets/index-B4YwiBn1.js"></script>
     <link rel="modulepreload" crossorigin href="/adabyar_demo/assets/ui-BCAwKH9Z.js">
-    <link rel="stylesheet" crossorigin href="/adabyar_demo/assets/index-BaqfmgHt.css">
+    <link rel="stylesheet" crossorigin href="/adabyar_demo/assets/index-UA1h7mbX.css">
   <link rel="manifest" href="/adabyar_demo/manifest.webmanifest"><script id="vite-plugin-pwa:register-sw" src="/adabyar_demo/registerSW.js"></script>
 <style>
   #gate{position:fixed;inset:0;z-index:99999;display:flex;align-items:center;justify-content:center;
@@ -20,19 +20,42 @@
   #gate h1{margin:0 0 .35rem;font-size:1.4rem}
   #gate p{margin:0 0 1.25rem;font-size:.85rem;line-height:1.9;color:#94a3b8}
   #gate input{width:100%;padding:.7rem;border-radius:.7rem;border:1px solid #475569;
-    background:#0f172a;color:#e2e8f0;text-align:center;font-size:1.1rem;letter-spacing:.15em}
+    background:#0f172a;color:#e2e8f0;text-align:center;font-size:1.1rem;letter-spacing:.12em}
   #gate button{width:100%;margin-top:.75rem;padding:.7rem;border:0;border-radius:.7rem;
     background:#6366f1;color:#fff;font-size:1rem;cursor:pointer}
-  #gate .err{color:#f87171;font-size:.8rem;height:1.2rem;margin-top:.5rem}
+  #gate button[disabled]{opacity:.6}
+  #gate .err{color:#f87171;font-size:.8rem;min-height:1.2rem;margin-top:.5rem}
   html.locked #root{visibility:hidden}
+  html:not(.locked) body{-webkit-user-select:none;user-select:none;-webkit-touch-callout:none}
+  input,textarea,[contenteditable="true"]{-webkit-user-select:text;user-select:text}
+  img{-webkit-user-drag:none;pointer-events:auto}
+  @media print{html,body{display:none!important}}
 </style>
 <script>
-  /* پیش از رنگ‌آمیزیِ صفحه تصمیم می‌گیریم تا اپ لحظه‌ای دیده نشود */
   try {
-    if (localStorage.getItem('adabyar-key') !== "8899c808bfc8e0b2da79fc1a5f777fee448735364cc47f80eee808376e78e1d9") {
+    if (!localStorage.getItem("adabyar-vk-full") || localStorage.getItem("adabyar-vk-full-id") !== "3/lXyXnS4aoGYCfhXZm0Aw==") {
       document.documentElement.classList.add('locked')
     }
   } catch (e) { document.documentElement.classList.add('locked') }
+
+(function () {
+  function editable(t) {
+    return t && t.closest && t.closest('input,textarea,[contenteditable="true"]')
+  }
+  ['copy', 'cut', 'contextmenu', 'dragstart', 'selectstart'].forEach(function (ev) {
+    document.addEventListener(ev, function (e) { if (!editable(e.target)) e.preventDefault() }, true)
+  })
+  document.addEventListener('keydown', function (e) {
+    var k = (e.key || '').toLowerCase()
+    var mod = e.ctrlKey || e.metaKey
+    if ((mod && 'csupa'.indexOf(k) >= 0 && !editable(e.target)) ||
+        (mod && e.shiftKey && 'ijc'.indexOf(k) >= 0) || k === 'f12') {
+      e.preventDefault(); e.stopPropagation()
+    }
+  }, true)
+  window.addEventListener('beforeprint', function () { document.body.style.display = 'none' })
+  window.addEventListener('afterprint', function () { document.body.style.display = '' })
+})()
 </script>
 </head>
   <body>
@@ -41,31 +64,25 @@
 <div id="gate" hidden><div class="box">
   <h1>ادب‌یار</h1>
   <p>برای ورود، رمز را یک بار وارد کنید.<br>روی همین دستگاه به یاد می‌ماند.</p>
-  <input id="pw" type="password" autocomplete="off" placeholder="رمز">
+  <input id="pw" type="text" autocomplete="off" autocapitalize="characters" spellcheck="false" placeholder="رمز">
   <button id="go">ورود</button>
   <div class="err" id="err"></div>
 </div></div>
 <script>
 (function () {
-  var DIGEST = "8899c808bfc8e0b2da79fc1a5f777fee448735364cc47f80eee808376e78e1d9"
+  var SALT = "3/lXyXnS4aoGYCfhXZm0Aw=="
+  var CHECK = {"__sealed":1,"iv":"MmVA2dP+pbiZVSu5","ct":"hPs6mt0YMSP6M73fR7i9VGYSj7JH727xoa/44Q=="}
+  var ITER = 250000
   var root = document.documentElement
   var gate = document.getElementById('gate')
   if (!root.classList.contains('locked')) { gate.remove(); return }
   gate.hidden = false
+  var pw = document.getElementById('pw'), err = document.getElementById('err'), go = document.getElementById('go')
 
-  var pw = document.getElementById('pw')
-  var err = document.getElementById('err')
-
-  function open() {
-    try { localStorage.setItem('adabyar-key', DIGEST) } catch (e) {}
-    root.classList.remove('locked')
-    gate.remove()
-  }
-  /* صفحه‌کلیدِ فارسی ارقام را به‌شکلِ ۱۲۳ می‌فرستد، نه 123. */
+  function b64(s) { var b = atob(s), u = new Uint8Array(b.length); for (var i = 0; i < b.length; i++) u[i] = b.charCodeAt(i); return u }
+  function toB64(buf) { var u = new Uint8Array(buf), s = ''; for (var i = 0; i < u.length; i++) s += String.fromCharCode(u[i]); return btoa(s) }
   function normalize(s) {
-    var fa = '۰۱۲۳۴۵۶۷۸۹'
-    var ar = '٠١٢٣٤٥٦٧٨٩'
-    var out = ''
+    var fa = '۰۱۲۳۴۵۶۷۸۹', ar = '٠١٢٣٤٥٦٧٨٩', out = ''
     for (var i = 0; i < s.length; i++) {
       var c = s[i], j = fa.indexOf(c)
       if (j < 0) j = ar.indexOf(c)
@@ -73,19 +90,26 @@
     }
     return out.replace(/[\s\u200c-]+/g, '').toUpperCase()
   }
-  async function hash(s) {
-    var buf = await crypto.subtle.digest('SHA-256', new TextEncoder().encode(s))
-    return Array.from(new Uint8Array(buf)).map(function (b) {
-      return b.toString(16).padStart(2, '0')
-    }).join('')
-  }
   async function tryOpen() {
     var v = normalize(pw.value || '')
     if (!v) return
-    if (await hash(v) === DIGEST) open()
-    else { err.textContent = 'رمز درست نیست.'; pw.value = ''; pw.focus() }
+    go.disabled = true; err.textContent = 'در حال بررسی…'
+    try {
+      var base = await crypto.subtle.importKey('raw', new TextEncoder().encode(v), 'PBKDF2', false, ['deriveKey'])
+      var key = await crypto.subtle.deriveKey(
+        { name: 'PBKDF2', salt: b64(SALT), iterations: ITER, hash: 'SHA-256' },
+        base, { name: 'AES-GCM', length: 256 }, true, ['decrypt'])
+      await crypto.subtle.decrypt({ name: 'AES-GCM', iv: b64(CHECK.iv) }, key, b64(CHECK.ct))
+      var raw = await crypto.subtle.exportKey('raw', key)
+      localStorage.setItem("adabyar-vk-full", toB64(raw))
+      localStorage.setItem("adabyar-vk-full-id", SALT)
+      location.reload()
+    } catch (e) {
+      go.disabled = false
+      err.textContent = 'رمز درست نیست.'; pw.value = ''; pw.focus()
+    }
   }
-  document.getElementById('go').addEventListener('click', tryOpen)
+  go.addEventListener('click', tryOpen)
   pw.addEventListener('keydown', function (e) { if (e.key === 'Enter') tryOpen() })
   pw.focus()
 })()

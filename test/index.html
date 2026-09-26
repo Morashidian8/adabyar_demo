@@ -8,9 +8,9 @@
     <link rel="icon" type="image/svg+xml" href="./favicon.svg" />
     <link rel="apple-touch-icon" href="./icon-192.png" />
     <title>ادب‌یار — آموزش ادبیات فارسی</title>
-    <script type="module" crossorigin src="/adabyar_demo/test/assets/index-gX95n3Yt.js"></script>
+    <script type="module" crossorigin src="/adabyar_demo/test/assets/index-CDLmbefN.js"></script>
     <link rel="modulepreload" crossorigin href="/adabyar_demo/test/assets/ui-DTRMGCK4.js">
-    <link rel="stylesheet" crossorigin href="/adabyar_demo/test/assets/index-CeQrK_f8.css">
+    <link rel="stylesheet" crossorigin href="/adabyar_demo/test/assets/index-CwUDUKKE.css">
   <link rel="manifest" href="/adabyar_demo/test/manifest.webmanifest"><script id="vite-plugin-pwa:register-sw" src="/adabyar_demo/test/registerSW.js"></script>
 <style>
   #gate{position:fixed;inset:0;z-index:99999;display:flex;align-items:center;justify-content:center;
@@ -33,7 +33,7 @@
 </style>
 <script>
   try {
-    if (!localStorage.getItem('adabyar-vk') || localStorage.getItem('adabyar-vk-id') !== "d2vIsHfgolCpd6TrWyLxdQ==") {
+    if (!localStorage.getItem("adabyar-vk") || localStorage.getItem("adabyar-vk-id") !== "d2vIsHfgolCpd6TrWyLxdQ==") {
       document.documentElement.classList.add('locked')
     }
   } catch (e) { document.documentElement.classList.add('locked') }
@@ -71,7 +71,7 @@
 <script>
 (function () {
   var SALT = "d2vIsHfgolCpd6TrWyLxdQ=="
-  var CHECK = {"__sealed":1,"iv":"yswHoSKk4bm7VxJ2","ct":"0QrgEVztCZn9xmVt5+FQa9fXvQ+I3uicgdewEQ=="}
+  var CHECK = {"__sealed":1,"iv":"WofnkuV1nXCCIRgk","ct":"mZWeKcwklmPMjdL9jpwz+rSw5IVnAf4mxsf8aA=="}
   var ITER = 250000
   var root = document.documentElement
   var gate = document.getElementById('gate')
@@ -101,8 +101,8 @@
         base, { name: 'AES-GCM', length: 256 }, true, ['decrypt'])
       await crypto.subtle.decrypt({ name: 'AES-GCM', iv: b64(CHECK.iv) }, key, b64(CHECK.ct))
       var raw = await crypto.subtle.exportKey('raw', key)
-      localStorage.setItem('adabyar-vk', toB64(raw))
-      localStorage.setItem('adabyar-vk-id', SALT)
+      localStorage.setItem("adabyar-vk", toB64(raw))
+      localStorage.setItem("adabyar-vk-id", SALT)
       location.reload()
     } catch (e) {
       go.disabled = false
