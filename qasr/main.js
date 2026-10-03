@@ -235,7 +235,7 @@
   /* ── پایه‌ها ── */
   const COLORS = { 7: ['#4f46e5', '#7c3aed'], 8: ['#0e7490', '#2563eb'], 9: ['#047857', '#0d9488'], 10: ['#b45309', '#db2777'], 11: ['#be123c', '#7c3aed'], 12: ['#1e293b', '#4338ca'] }
   const ORD = { 7: 'هفتم', 8: 'هشتم', 9: 'نهم', 10: 'دهم', 11: 'یازدهم', 12: 'دوازدهم' }
-  fetch('curriculum.json').then((r) => r.json()).then((data) => {
+  fetch('curriculum.json?v=4f805cca').then((r) => r.json()).then((data) => {
     const box = $('#grade-list')
     let total = 0
     box.innerHTML = data.grades.map((g) => {
