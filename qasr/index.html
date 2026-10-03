@@ -35,7 +35,7 @@
       </a>
       <nav class="nav" id="nav" aria-label="بخش‌ها">
         <a href="#exams">تیزهوشان و نهایی</a>
-        <a href="#features">ویژگی‌ها</a>
+        <a href="#leitner">امکانات</a>
         <a href="#grades">پایه‌ها</a>
         <a href="#download">دانلود</a>
         <a href="#teacher">مدرّس</a>
@@ -285,6 +285,8 @@
           <div class="cmp-row" role="row"><span role="cell">تکرارِ درس</span><span role="cell" class="no">یک بار گفته می‌شود</span><span role="cell" class="yes">هر چند بار که بخواهید</span></div>
           <div class="cmp-row" role="row"><span role="cell">معنیِ همهٔ بیت‌ها</span><span role="cell" class="no">تا جایی که وقت برسد</span><span role="cell" class="yes">بیت‌به‌بیت، بی‌استثنا</span></div>
           <div class="cmp-row" role="row"><span role="cell">تست و آزمون</span><span role="cell" class="no">محدود</span><span role="cell" class="yes">+۱٬۸۰۰ پرسش با پاسخِ تشریحی</span></div>
+          <div class="cmp-row" role="row"><span role="cell">مرورِ واژه‌ها</span><span role="cell" class="no">به عهدهٔ خودِ دانش‌آموز</span><span role="cell" class="yes">جعبهٔ لایتنرِ هوشمند</span></div>
+          <div class="cmp-row" role="row"><span role="cell">انگیزه و پیگیری</span><span role="cell" class="no">کارنامهٔ پایانِ ترم</span><span role="cell" class="yes">سطح، نشان، نمودار و نقاطِ ضعف</span></div>
           <div class="cmp-row" role="row"><span role="cell">شبِ امتحان</span><span role="cell" class="no">معلّم در دسترس نیست</span><span role="cell" class="yes">جمع‌بندی و رفعِ اشکالِ هر درس</span></div>
         </div>
       </div>
@@ -323,6 +325,91 @@
       </div>
     </section>
 
+    <!-- ───────── لایتنر ───────── -->
+    <section class="sec sec-alt" id="leitner">
+      <div class="wrap lt">
+        <div class="lt-text reveal">
+          <p class="kicker">مرورِ هوشمند</p>
+          <h2>جعبهٔ لایتنر؛ هیچ واژه‌ای فراموش نمی‌شود</h2>
+          <p>واژه‌ها، آرایه‌ها، نکته‌ها و بیت‌های مهمِ هر درس کارت می‌شوند. کارتی که بلدی به خانهٔ بعد می‌رود و دیرتر برمی‌گردد؛ کارتی که یادت رفته به خانهٔ اوّل برمی‌گردد. اپ هر روز فقط کارت‌هایی را می‌آورد که وقتِ مرورشان رسیده — همان روشی که حافظهٔ بلندمدت را می‌سازد.</p>
+          <ul class="checks">
+            <li>پنج خانه با فاصله‌های امروز، ۱، ۳، ۷ و ۱۶ روز</li>
+            <li>کارت‌های واژه، آرایه، نکته و بیت — ساخته‌شده از خودِ درس</li>
+            <li>شمارِ کارت‌های امروز همیشه روی صفحهٔ اصلی</li>
+            <li>با هر مرور امتیاز؛ و نشانِ «صد کارت مرور»</li>
+          </ul>
+        </div>
+        <div class="lt-demo reveal" id="lt">
+          <p class="lt-hint">امتحان کنید: کارت را بزنید تا برگردد، بعد بگویید بلد بودید یا نه.</p>
+          <div class="lt-boxes" aria-label="خانه‌های جعبهٔ لایتنر">
+            <div class="lt-box"><b>۰</b><span>امروز</span></div>
+            <div class="lt-box"><b>۰</b><span>۱ روز</span></div>
+            <div class="lt-box"><b>۰</b><span>۳ روز</span></div>
+            <div class="lt-box"><b>۰</b><span>۷ روز</span></div>
+            <div class="lt-box"><b>۰</b><span>۱۶ روز</span></div>
+          </div>
+          <button class="lt-card" id="lt-card" type="button" aria-live="polite">
+            <span class="lt-inner">
+              <span class="lt-face lt-front"><small></small><b></b><em>برای دیدنِ پاسخ بزنید</em></span>
+              <span class="lt-face lt-back"><small></small><b></b><em></em></span>
+            </span>
+          </button>
+          <div class="lt-btns">
+            <button type="button" data-ans="0">✕ بلد نبودم</button>
+            <button type="button" data-ans="1">✓ بلد بودم</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ───────── پیشرفت و نشان‌ها ───────── -->
+    <section class="sec" id="progress">
+      <div class="wrap pg">
+        <div class="pg-text reveal">
+          <p class="kicker">انگیزه تا آخرِ سال</p>
+          <h2>پیشرفتت را ببین، نشان بگیر، سطح بالا ببر</h2>
+          <p>درس خواندن با قصر فارسی مثلِ یک بازیِ آموزشی است: هر درس، تمرین، آزمون و مرور امتیاز دارد و دانش‌آموز قدم‌به‌قدم بالا می‌رود. پدر و مادر هم با یک نگاه می‌بینند فرزندشان کجا ایستاده است.</p>
+          <ul class="checks">
+            <li>۹ سطح، از «نوآموز» تا «خداوندگارِ سخن»</li>
+            <li>روزهای پیاپیِ مطالعه، هدفِ روزانه و نمودارِ هفته</li>
+            <li>«نقاطِ ضعفِ تو»: مبحث‌هایی که بیشتر در آن‌ها اشتباه شده</li>
+            <li>کارنامهٔ آزمون‌ها، میانگینِ نمره و درس‌های تثبیت‌شده</li>
+            <li>نشان‌ها: آزمونِ بی‌نقص، اوّلین قبولی، هفت روزِ پیاپی، صد کارت مرور</li>
+          </ul>
+        </div>
+        <div class="pg-panel reveal" aria-hidden="true">
+          <div class="pg-top">
+            <div class="pg-ring">
+              <svg viewBox="0 0 120 120"><circle cx="60" cy="60" r="52" class="bg"/><circle cx="60" cy="60" r="52" class="fg"/></svg>
+              <span><b>سطح ۵</b><small>ادیب</small></span>
+            </div>
+            <div class="pg-meta">
+              <span class="pg-streak">🔥 ۷ روزِ پیاپی</span>
+              <div class="pg-xp"><i></i></div>
+              <small>۲۳۲ امتیاز تا «سخنور»</small>
+            </div>
+          </div>
+          <p class="pg-h">دقیقه‌های مطالعهٔ این هفته</p>
+          <div class="pg-week">
+            <span style="--h:55%"><i></i>ش</span><span style="--h:80%"><i></i>ی</span><span style="--h:40%"><i></i>د</span><span style="--h:95%"><i></i>س</span><span style="--h:65%"><i></i>چ</span><span style="--h:85%"><i></i>پ</span><span style="--h:30%"><i></i>ج</span>
+          </div>
+          <p class="pg-h">نقاطِ ضعفِ تو</p>
+          <div class="pg-weak">
+            <div><span>دستورِ زبان</span><em style="--w:48%"><i></i></em><b>۴۸٪</b></div>
+            <div><span>آرایه‌های ادبی</span><em style="--w:66%"><i></i></em><b>۶۶٪</b></div>
+            <div><span>واژگان</span><em style="--w:88%"><i></i></em><b>۸۸٪</b></div>
+          </div>
+          <p class="pg-h">نشان‌ها</p>
+          <div class="pg-badges">
+            <span style="--d:0s">💯<small>آزمونِ بی‌نقص</small></span>
+            <span style="--d:.15s">🎓<small>اوّلین قبولی</small></span>
+            <span style="--d:.3s">🔥<small>هفت روزِ پیاپی</small></span>
+            <span style="--d:.45s" class="locked">🃏<small>صد کارت مرور</small></span>
+          </div>
+        </div>
+      </div>
+    </section>
+
     <!-- ───────── ویژگی‌ها ───────── -->
     <section class="sec sec-alt" id="features">
       <div class="wrap">
@@ -352,9 +439,29 @@
             <p>تشبیه، استعاره، کنایه، تشخیص، مجاز و… با نمونه‌های خودِ درس؛ و دستورِ زبان از نقشِ کلمه تا انواعِ فعل.</p>
           </article>
           <article class="feat reveal glow">
-            <span class="ico"><svg viewBox="0 0 24 24"><path d="M4 19V9M10 19V5M16 19v-7M22 19H2"/></svg></span>
-            <h3>کارنامه و پیشرفت</h3>
-            <p>نمرهٔ آزمون‌ها و درس‌های گذرانده روی همان گوشی ثبت می‌شود تا دانش‌آموز ببیند کجا ایستاده است.</p>
+            <span class="ico"><svg viewBox="0 0 24 24"><path d="M12 3l9 5-9 5-9-5zM3 13l9 5 9-5"/></svg></span>
+            <h3>قلمروهای سه‌گانه</h3>
+            <p>برای هر بیت: قلمروِ زبانی (شمارِ جمله، نقش‌ها، ضمیرها)، ادبی (آرایه‌ها) و فکری (معنی و پیام) — همان که در نهایی می‌پرسند.</p>
+          </article>
+          <article class="feat reveal glow">
+            <span class="ico"><svg viewBox="0 0 24 24"><path d="M4 4h16v16H4zM4 9h16M9 9v11"/></svg></span>
+            <h3>درس‌نامهٔ مهارت‌ها</h3>
+            <p>هجده آرایه با «نشانهٔ تشخیص»، دستورِ زبان در شش فصل و قالب‌های شعر — جدا از درس‌ها، برای جمع‌بندی.</p>
+          </article>
+          <article class="feat reveal glow">
+            <span class="ico"><svg viewBox="0 0 24 24"><path d="M9 11l3 3 8-8M20 12v7a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h9"/></svg></span>
+            <h3>شش نوع پرسش</h3>
+            <p>چهارگزینه‌ای، درست‌ونادرست، جای خالی، وصل‌کردنی، مرتّب‌کردنی و پاسخِ کوتاه — همه با تصحیحِ خودکار.</p>
+          </article>
+          <article class="feat reveal glow">
+            <span class="ico"><svg viewBox="0 0 24 24"><path d="M2 5h7a3 3 0 0 1 3 3v12a2 2 0 0 0-2-2H2zM22 5h-7a3 3 0 0 0-3 3v12a2 2 0 0 1 2-2h8z"/></svg></span>
+            <h3>صفحه‌های کتابِ درسی</h3>
+            <p>تصویرِ صفحه‌های کتابِ چاپی کنارِ هر درس، برای اینکه متنِ اپ را با اصلِ کتاب مقایسه کنید.</p>
+          </article>
+          <article class="feat reveal glow">
+            <span class="ico"><svg viewBox="0 0 24 24"><path d="M4 20h16M6 16l6-12 6 12M8.5 11h7"/></svg></span>
+            <h3>خواندن به سلیقهٔ شما</h3>
+            <p>خطِ نستعلیق برای شعرها، اندازهٔ دلخواهِ قلم، حالتِ تاریک، نمایشِ خودکارِ معنی و نشانک برای درس‌ها.</p>
           </article>
           <article class="feat reveal glow">
             <span class="ico"><svg viewBox="0 0 24 24"><path d="M2 8.8a15 15 0 0 1 20 0M5.5 12.3a10 10 0 0 1 13 0M9 15.8a5 5 0 0 1 6 0M12 19.5h.01"/><path d="M3 3l18 18"/></svg></span>

@@ -297,6 +297,62 @@
   }
 
 
+
+  /* ── جعبهٔ لایتنرِ نمایشی ── */
+  const lt = $('#lt')
+  if (lt) {
+    const DECK = [
+      ['واژه', 'سپهر', 'آسمان', 'ستایشِ نهم'],
+      ['واژه', 'مونس', 'همدم، همراه', 'ستایشِ هفتم'],
+      ['آرایه', '«دوستِ خوب، کیمیاست»', 'تشبیهِ بلیغ', 'درسِ چهارمِ هفتم'],
+      ['واژه', 'بُرنا', 'جوان', 'ستایشِ نهم'],
+      ['آرایه', '«کوته ز دَرَت، درازدستی»', 'تضاد و کنایه', 'ستایشِ هفتم'],
+      ['واژه', 'کیوان', 'سیارهٔ زحل', 'ستایشِ نهم'],
+      ['بیت', 'توانا بُوَد هر که دانا بُوَد…', 'دانایی مایهٔ توانایی است', 'فردوسی'],
+    ]
+    const boxEls = $$('.lt-box', lt), card = $('#lt-card', lt)
+    const box = DECK.map(() => 0)
+    let cur = 0
+    const paintBoxes = (bump) => {
+      boxEls.forEach((el, i) => {
+        $('b', el).textContent = fa(box.filter((b) => b === i).length)
+        if (i === bump) { el.classList.remove('bump'); void el.offsetWidth; el.classList.add('bump'); setTimeout(() => el.classList.remove('bump'), 450) }
+      })
+    }
+    const paintCard = () => {
+      const [kind, front, back, src] = DECK[cur]
+      $('.lt-front small', card).textContent = kind
+      $('.lt-front b', card).textContent = front
+      $('.lt-back small', card).textContent = kind === 'واژه' ? 'معنی' : 'پاسخ'
+      $('.lt-back b', card).textContent = back
+      $('.lt-back em', card).textContent = src
+    }
+    // کارتِ بعدی: کمترین خانه، و در خانه‌های برابر به ترتیبِ دسته
+    const nextCard = () => {
+      let best = -1
+      for (let k = 1; k <= DECK.length; k++) {
+        const i = (cur + k) % DECK.length
+        if (best < 0 || box[i] < box[best]) best = i
+      }
+      return best
+    }
+    card.addEventListener('click', () => card.classList.toggle('flip'))
+    $$('.lt-btns button', lt).forEach((b) => b.addEventListener('click', () => {
+      if (!card.classList.contains('flip')) { card.classList.add('flip'); return }
+      const ok = b.dataset.ans === '1'
+      box[cur] = ok ? Math.min(box[cur] + 1, 4) : 0
+      const to = box[cur]
+      card.classList.add('out')
+      setTimeout(() => {
+        cur = nextCard()
+        card.classList.remove('out', 'flip')
+        paintCard()
+        paintBoxes(to)
+      }, reduce ? 0 : 430)
+    }))
+    paintCard(); paintBoxes(-1)
+  }
+
   /* ── نمونه تستِ تیزهوشان ── */
   const demo = $('#demo')
   if (demo) {
