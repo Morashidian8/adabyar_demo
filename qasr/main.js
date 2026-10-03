@@ -12,6 +12,15 @@
   const finePointer = matchMedia('(hover: hover) and (pointer: fine)').matches
   const esc = (s) => String(s).replace(/[&<>"']/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' })[c])
 
+  /* ── سرآغازِ سه‌بعدی: اگر مرورگر importmap یا WebGL را نداشت یا بالا نیامد، کنار برود ── */
+  const intro = $('#intro')
+  if (intro) {
+    const gl = (() => { try { return !!document.createElement('canvas').getContext('webgl2') } catch { return false } })()
+    const im = !!(HTMLScriptElement.supports && HTMLScriptElement.supports('importmap'))
+    if (!gl || !im) intro.classList.add('no3d')
+    else setTimeout(() => { if (!intro.classList.contains('ready')) intro.classList.add('no3d') }, 9000)
+  }
+
   /* ── پیوندها ── */
   $$('[data-app]').forEach((a) => { a.href = C.appUrl || '#'; a.rel = 'noopener' })
   $$('[data-buy]').forEach((a) => { if (C.bazaarUrl) { a.href = C.bazaarUrl; a.rel = 'noopener'; a.target = '_blank' } })

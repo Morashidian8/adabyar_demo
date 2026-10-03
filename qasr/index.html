@@ -55,34 +55,20 @@
   </header>
 
   <main id="main">
+    <!-- ───────── سرآغازِ سه‌بعدی ───────── -->
+    <section class="intro" id="intro" aria-label="قصر فارسی — «پی افکندم از نظم کاخی بلند / که از باد و باران نیابد گزند»">
+      <canvas id="intro3d" aria-hidden="true"></canvas>
+      <div class="intro-ui">
+        <p class="intro-brand">قصر فارسی</p>
+        <p class="intro-by">با تدریسِ ملیحه قصرانی</p>
+        <a class="intro-down" href="#hero" aria-label="ادامه"><svg viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg></a>
+      </div>
+      <button class="intro-replay" id="intro-replay" type="button" aria-label="پخشِ دوباره"><svg viewBox="0 0 24 24"><path d="M4 12a8 8 0 1 0 2.3-5.6M4 4v4h4"/></svg></button>
+    </section>
+
     <!-- ───────── سرآغاز ───────── -->
-    <section class="hero">
+    <section class="hero" id="hero">
       <canvas class="sky" id="sky" aria-hidden="true"></canvas>
-      <svg class="palace" viewBox="0 0 1200 520" preserveAspectRatio="xMidYMax meet" aria-hidden="true">
-        <defs>
-          <linearGradient id="pg" x1="0" y1="0" x2="0" y2="1">
-            <stop offset="0" stop-color="var(--gold-2)"/>
-            <stop offset="1" stop-color="var(--gold)" stop-opacity=".15"/>
-          </linearGradient>
-        </defs>
-        <g class="draw" fill="none" stroke="url(#pg)" stroke-width="2.2" stroke-linejoin="round">
-          <!-- گنبد و طاقِ میانی -->
-          <path d="M470 520V300c0-70 40-118 130-150 90 32 130 80 130 150v220"/>
-          <path d="M520 520V318c0-48 28-82 80-104 52 22 80 56 80 104v202"/>
-          <path d="M500 196c10-70 50-112 100-130 50 18 90 60 100 130"/>
-          <path d="M600 66V22M600 22c-8 0-12-6-12-12s6-10 12-10 12 4 12 10-4 12-12 12"/>
-          <!-- مناره‌ها -->
-          <path d="M380 520V170M410 520V170M372 170h46M380 170l15-46 15 46M395 124V96"/>
-          <path d="M790 520V170M820 520V170M782 170h46M790 170l15-46 15 46M805 124V96"/>
-          <path d="M372 250h46M372 330h46M782 250h46M782 330h46"/>
-          <!-- ایوان‌های کناری -->
-          <path d="M180 520V380c0-40 26-66 70-82 44 16 70 42 70 82v140"/>
-          <path d="M880 520V380c0-40 26-66 70-82 44 16 70 42 70 82v140"/>
-          <path d="M60 520V430c0-26 18-44 46-54 28 10 46 28 46 54v90"/>
-          <path d="M1048 520V430c0-26 18-44 46-54 28 10 46 28 46 54v90"/>
-          <path d="M0 519h1200"/>
-        </g>
-      </svg>
       <div class="wrap hero-in">
         <div class="hero-text">
           <p class="kicker">مرجعِ کاملِ فارسیِ هفتم تا دوازدهم</p>
@@ -176,21 +162,6 @@
         <span>فردوسی</span><i>✦</i><span>سعدی</span><i>✦</i><span>حافظ</span><i>✦</i><span>مولوی</span><i>✦</i><span>نظامی</span><i>✦</i><span>عطّار</span><i>✦</i><span>ناصرخسرو</span><i>✦</i><span>سنایی</span><i>✦</i><span>پروین اعتصامی</span><i>✦</i><span>نیما یوشیج</span><i>✦</i><span>سهراب سپهری</span><i>✦</i><span>قیصر امین‌پور</span><i>✦</i><span>اخوان ثالث</span><i>✦</i><span>جمال‌زاده</span><i>✦</i><span>شهریار</span><i>✦</i><span>جامی</span><i>✦</i>
       </div>
     </div>
-
-    <!-- ───────── تیزر ───────── -->
-    <section class="sec sec-teaser" id="teaser">
-      <div class="wrap">
-        <header class="sec-head reveal">
-          <p class="kicker">قصر فارسی در ۳۰ ثانیه</p>
-          <h2>به قصر خوش آمدید</h2>
-        </header>
-        <div class="reveal"><div data-teaser aria-label="تیزرِ متحرکِ قصر فارسی" role="img"></div></div>
-        <div class="teaser-actions reveal" id="teaser-actions">
-          <a class="btn btn-ghost btn-sm" href="teaser.html" target="_blank" rel="noopener">نمایشِ تمام‌صفحه</a>
-          <a class="btn btn-gold btn-sm" href="downloads/qasr-farsi-teaser.mp4" download="qasr-farsi-teaser.mp4">دانلودِ ویدیو برای اینستاگرام و تلگرام (MP4)</a>
-        </div>
-      </div>
-    </section>
 
     <!-- ───────── سه وعده ───────── -->
     <section class="promise">
@@ -747,6 +718,7 @@
 
   <script src="config.js"></script>
   <script src="main.js" defer></script>
-  <script src="teaser.js" defer></script>
+  <script type="importmap">{ "imports": { "three": "./vendor/three.module.min.js", "three/addons/": "./vendor/jsm/" } }</script>
+  <script type="module" src="intro3d.js"></script>
 </body>
 </html>
