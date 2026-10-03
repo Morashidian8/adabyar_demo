@@ -589,6 +589,82 @@ p { margin: 0; }
 .pg-panel.in .pg-badges span { opacity: 1; transform: none; }
 .pg-panel.in .pg-badges .locked { opacity: .45; }
 
+
+/* ── تیزرِ ۳۰ ثانیه‌ای ── */
+.sec-teaser { padding-top: clamp(40px, 6vw, 72px); }
+.tz { position: relative; width: 100%; aspect-ratio: 16 / 9; overflow: hidden; border-radius: 24px; background: #070a17; box-shadow: 0 40px 80px -30px rgba(7, 10, 23, .8), 0 0 0 1px rgba(233, 196, 106, .25); isolation: isolate; user-select: none; }
+.tz:fullscreen { border-radius: 0; aspect-ratio: auto; display: grid; place-items: center; }
+.tz-world { position: absolute; top: 0; left: 0; width: 1600px; height: 900px; transform-origin: 0 0; overflow: hidden; color: #fff; font-family: Vazirmatn, sans-serif; cursor: pointer; }
+.tz-bg, .tz-sky, .tz-flash, .tz-vignette, .tz-palace { position: absolute; inset: 0; width: 1600px; height: 900px; }
+.tz-flash { background: radial-gradient(60% 60% at 50% 80%, #fff8e1, #f6e2a8 40%, rgba(233, 196, 106, 0)); opacity: 0; pointer-events: none; }
+.tz-vignette { background: radial-gradient(120% 100% at 50% 45%, transparent 60%, rgba(0, 0, 0, .55)); pointer-events: none; }
+.tz-palace { transform-origin: 800px 740px; }
+.tz-lines path { filter: drop-shadow(0 0 6px rgba(233, 196, 106, .55)); }
+.tz-a { position: absolute; left: 50%; top: 50%; margin: 0; white-space: nowrap; will-change: transform, opacity; }
+.tz-moon { left: 1300px; top: 170px; width: 120px; height: 120px; border-radius: 50%; background: radial-gradient(circle at 38% 38%, #fffdf4, #f3e3b4 55%, #d9b86a); box-shadow: 0 0 60px 18px rgba(246, 226, 168, .35), 0 0 160px 60px rgba(246, 226, 168, .12); }
+.tz-bism { font-size: 54px; line-height: 2.2; color: #f3e6c4; text-shadow: 0 0 24px rgba(233, 196, 106, .5); }
+.tz-title { font-family: Lalezar, Vazirmatn; font-weight: 400; font-size: 190px; line-height: 1.2; filter: drop-shadow(0 10px 40px rgba(233, 196, 106, .45)); }
+.tz-title span { display: inline-block; background: linear-gradient(100deg, #f6e2a8 0%, #e9c46a 30%, #fff8e1 45%, #c98a26 60%, #f6e2a8 100%); background-size: 250% 100%; -webkit-background-clip: text; background-clip: text; color: transparent; padding: 0 .04em; }
+.tz-sub { font-size: 34px; color: #e4e0f7; }
+.tz-sub b { color: #f6e2a8; }
+.tz-book svg { filter: drop-shadow(0 30px 40px rgba(0, 0, 0, .55)) drop-shadow(0 0 40px rgba(233, 196, 106, .25)); }
+.tz-verse { font-size: 64px; line-height: 2.1; color: #fff8e1; text-shadow: 0 0 28px rgba(233, 196, 106, .55); }
+.tz-verse span { display: inline-block; }
+.tz-chip { display: flex; align-items: center; gap: 14px; font-size: 28px; font-weight: 700; padding: 14px 28px; border-radius: 99px; background: rgba(255, 255, 255, .09); border: 1.5px solid rgba(233, 196, 106, .45); backdrop-filter: blur(6px); }
+.tz-chip b { color: #f6e2a8; }
+.tz-play { width: 40px; height: 40px; border-radius: 50%; background: linear-gradient(135deg, #e9c46a, #c98a26); position: relative; flex: none; }
+.tz-play::after { content: ""; position: absolute; inset: 11px 11px 11px 14px; background: #2a1a00; clip-path: polygon(0 0, 100% 50%, 0 100%); }
+.tz-wave { display: flex; gap: 5px; align-items: center; height: 40px; }
+.tz-wave i { width: 5px; height: 100%; border-radius: 3px; background: #e9c46a; }
+.tz-head { font-size: 48px; font-weight: 900; color: #fff; }
+.tz-tile { width: 290px; height: 260px; border-radius: 30px; display: grid; justify-items: center; align-content: center; gap: 10px; white-space: normal; text-align: center;
+  background: linear-gradient(160deg, rgba(124, 58, 237, .45), rgba(79, 70, 229, .25)); border: 1.5px solid rgba(255, 255, 255, .18); box-shadow: 0 30px 50px -24px rgba(0, 0, 0, .7); }
+.tz-tile svg { width: 76px; height: 76px; fill: none; stroke: #f6e2a8; stroke-width: 1.6; stroke-linecap: round; stroke-linejoin: round; }
+.tz-tile b { font-size: 42px; font-weight: 900; }
+.tz-tile span { font-size: 24px; color: #d9d6ee; }
+.tz-count { display: grid; justify-items: center; }
+.tz-count b { font-size: 70px; font-weight: 900; line-height: 1.2; background: linear-gradient(#fff8e1, #e9c46a); -webkit-background-clip: text; background-clip: text; color: transparent; font-variant-numeric: tabular-nums; }
+.tz-count span { font-size: 26px; color: #c9c5e6; }
+.tz-boxes { display: flex; gap: 10px; }
+.tz-boxes div { width: 110px; height: 150px; border-radius: 16px 16px 10px 10px; background: rgba(255, 255, 255, .07); border: 1.5px solid rgba(255, 255, 255, .16); border-top: 5px solid #e9c46a; display: grid; align-items: end; justify-items: center; padding-bottom: 12px; transition: background .3s, box-shadow .3s; }
+.tz-boxes div span { font-size: 22px; color: #d9d6ee; }
+.tz-boxes div.hit { background: rgba(233, 196, 106, .2); box-shadow: 0 0 30px rgba(233, 196, 106, .4); }
+.tz-card { font-size: 26px; font-weight: 800; color: #2a1a00; padding: 16px 22px; border-radius: 16px; background: linear-gradient(135deg, #fffaf0, #f3e3b4); box-shadow: 0 16px 30px -12px rgba(0, 0, 0, .6); }
+.tz-ring { width: 230px; height: 230px; }
+.tz-ring svg { width: 100%; height: 100%; transform: rotate(-90deg); }
+.tz-ring circle { fill: none; stroke-width: 12; }
+.tz-ring .bg { stroke: rgba(255, 255, 255, .1); }
+.tz-ring .fg { stroke: #e9c46a; stroke-linecap: round; stroke-dasharray: 314; stroke-dashoffset: 314; filter: drop-shadow(0 0 8px rgba(233, 196, 106, .7)); }
+.tz-ring > span { position: absolute; inset: 0; display: grid; place-content: center; text-align: center; line-height: 1.3; }
+.tz-ring b { font-size: 40px; font-weight: 900; }
+.tz-ring small { font-size: 28px; color: #f6e2a8; font-weight: 800; }
+.tz-badge { font-size: 60px; width: 100px; height: 100px; display: grid; place-items: center; border-radius: 26px; background: rgba(255, 255, 255, .08); border: 1.5px solid rgba(255, 255, 255, .16); }
+.tz-trophy { font-size: 32px; }
+.tz-logo img { width: 170px; height: 170px; display: block; filter: drop-shadow(0 20px 50px rgba(124, 58, 237, .8)); }
+.tz-burst { width: 300px; height: 300px; border-radius: 50%; background: radial-gradient(circle, rgba(246, 226, 168, .9), rgba(233, 196, 106, .3) 40%, transparent 70%); }
+.tz-brand { font-family: Lalezar, Vazirmatn; font-size: 120px; line-height: 1.2; background: linear-gradient(100deg, #f6e2a8, #e9c46a 40%, #fff8e1 55%, #c98a26); -webkit-background-clip: text; background-clip: text; color: transparent; }
+.tz-hook { font-size: 44px; font-weight: 800; }
+.tz-hook b { color: #f6e2a8; }
+.tz-cta { font-size: 34px; font-weight: 900; color: #2a1a00; padding: 18px 44px; border-radius: 99px; background: linear-gradient(135deg, #f6e2a8, #c98a26); box-shadow: 0 20px 40px -14px rgba(201, 138, 38, .9); }
+.tz-url { font-size: 22px; color: #b9b5d6; direction: ltr; }
+/* نوارِ کنترل */
+.tz-ui { position: absolute; inset: auto 0 0; display: flex; align-items: center; gap: 12px; padding: 10px 14px; background: linear-gradient(transparent, rgba(0, 0, 0, .6)); opacity: 0; transition: opacity .3s; color: #fff; }
+.tz:hover .tz-ui, .tz:focus-within .tz-ui, .tz:not(.playing) .tz-ui { opacity: 1; }
+@media (hover: none) { .tz-ui { opacity: 1; } }
+.tz-btn { all: unset; cursor: pointer; width: 36px; height: 36px; display: grid; place-items: center; border-radius: 50%; background: rgba(255, 255, 255, .14); flex: none; }
+.tz-btn svg { width: 18px; height: 18px; fill: #fff; }
+.tz-fs svg { fill: none; stroke: #fff; stroke-width: 2.2; stroke-linecap: round; }
+.tz .i-pause { display: none; }
+.tz.playing .i-pause { display: block; }
+.tz.playing .i-play { display: none; }
+.tz-bar { position: relative; flex: 1; height: 6px; border-radius: 99px; background: rgba(255, 255, 255, .22); cursor: pointer; touch-action: none; }
+.tz-fill { position: absolute; top: 0; bottom: 0; right: 0; border-radius: inherit; background: linear-gradient(90deg, #c98a26, #f6e2a8); }
+.tz-tick { position: absolute; top: -3px; width: 2px; height: 12px; background: rgba(255, 255, 255, .5); }
+.tz-time { font-size: 13px; font-variant-numeric: tabular-nums; min-width: 36px; }
+.tz-export { border-radius: 0; box-shadow: none; }
+.tz-export .tz-ui { display: none; }
+.teaser-actions { display: flex; flex-wrap: wrap; justify-content: center; gap: 10px; margin-top: 18px; }
+
 /* ── آشکارشدن با اسکرول ── */
 .js .reveal { opacity: 0; transform: translateY(28px) scale(.98); transition: opacity .8s cubic-bezier(.2, .7, .2, 1), transform .8s cubic-bezier(.2, .7, .2, 1); transition-delay: var(--rd, 0s); }
 .js .reveal.in { opacity: 1; transform: none; }
