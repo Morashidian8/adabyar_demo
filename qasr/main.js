@@ -254,7 +254,7 @@
   /* ── دانلود ── */
   const bz = $('#dl-bazaar')
   if (C.bazaarUrl) { bz.href = C.bazaarUrl; bz.target = '_blank'; bz.rel = 'noopener'; bz.removeAttribute('aria-disabled'); $('#dl-bazaar-sub').textContent = 'دریافت از' }
-  if (C.apkUrl) { const a = $('#dl-apk'); a.href = C.apkUrl; a.hidden = false; a.setAttribute('download', '') }
+  if (C.apkUrl) $('#dl-apk').href = C.apkUrl
   const DLI = '<span class="dl"><svg viewBox="0 0 24 24"><path d="M12 4v11M7 10l5 5 5-5M5 20h14"/></svg></span>'
   const fileCard = (f) => {
     const [c1, c2] = COLORS[f.grade] || COLORS[7]

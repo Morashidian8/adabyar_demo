@@ -7,8 +7,8 @@ window.QASR = {
   appUrl: 'https://morashidian8.github.io/adabyar_demo/',
   /* نشانیِ صفحهٔ برنامه در کافه‌بازار — وقتی منتشر شد پر شود */
   bazaarUrl: '',
-  /* نشانیِ فایلِ نصبیِ اندروید (APK) برای دانلودِ مستقیم — اگر خالی باشد دکمه‌اش پنهان است */
-  apkUrl: '',
+  /* فایلِ نصبیِ اندروید (APK) — با android/build-apk.sh ساخته و در site/downloads/ گذاشته می‌شود */
+  apkUrl: 'downloads/adabyar.apk',
   /* نشانیِ عمومیِ همین سایت — برای دکمه‌های اشتراک‌گذاری */
   siteUrl: 'https://morashidian8.github.io/adabyar_demo/qasr/',
   /* فایل‌های دانلودیِ دیگر (جز جزوه‌های خودکار) — فایل را در site/downloads/ بگذارید:

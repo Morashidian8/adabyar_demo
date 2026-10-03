@@ -348,6 +348,18 @@ p { margin: 0; }
 }
 .store:hover { transform: translateY(-2px); background: rgba(255, 255, 255, .15); }
 .store[aria-disabled="true"] { opacity: .65; }
+.store-main { background: linear-gradient(135deg, var(--gold-2), var(--gold)); color: var(--gold-ink); border-color: transparent; box-shadow: 0 12px 28px -10px rgba(201, 138, 38, .9); }
+.store-main:hover { background: linear-gradient(135deg, #f6e2a8, var(--gold-2)); }
+.store-main svg { stroke: var(--gold-ink); stroke-width: 2.2; }
+@media (max-width: 560px) { .store-main { flex-basis: 100%; justify-content: center; } }
+.btn .bi { width: 20px; height: 20px; fill: none; stroke: currentColor; stroke-width: 2.4; stroke-linecap: round; stroke-linejoin: round; }
+.apk-steps { list-style: none; counter-reset: s; padding: 0; margin: 0 0 40px; display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; }
+.apk-steps li { counter-increment: s; background: var(--surface); border: 1px solid var(--line); border-radius: 18px; padding: 16px; display: grid; gap: 4px; position: relative; }
+.apk-steps li::before { content: counter(s, persian); width: 30px; height: 30px; border-radius: 10px; display: grid; place-items: center; font-weight: 900; background: color-mix(in srgb, var(--gold-2) 30%, transparent); color: var(--gold); }
+.apk-steps b { font-size: 16px; }
+.apk-steps span { color: var(--ink-2); font-size: 14px; }
+.sub-h { font-size: 19px; margin: 0 0 14px; }
+.card a { color: var(--gold); }
 .store svg { width: 26px; height: 26px; fill: none; stroke: var(--gold-2); stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
 .store span { display: grid; line-height: 1.35; }
 .store small { font-size: 11.5px; opacity: .8; }
@@ -397,7 +409,7 @@ p { margin: 0; }
 /* ── واکنش‌گرا ── */
 @media (max-width: 1000px) {
   .feats { grid-template-columns: repeat(2, 1fr); }
-  .grades, .files { grid-template-columns: repeat(2, 1fr); }
+  .grades, .files, .apk-steps { grid-template-columns: repeat(2, 1fr); }
   .steps { grid-template-columns: repeat(2, 1fr); }
   .steps-line { display: none; }
 }
@@ -423,7 +435,7 @@ p { margin: 0; }
 }
 @media (max-width: 560px) {
   .hide-sm { display: none; }
-  .feats, .grades, .steps, .two, .values, .files { grid-template-columns: 1fr; }
+  .feats, .grades, .steps, .two, .values, .files, .apk-steps { grid-template-columns: 1fr; }
   .share { grid-template-columns: 1fr; text-align: center; }
   .share-btns { justify-content: center; }
   .dl-app { justify-content: center; text-align: center; }
