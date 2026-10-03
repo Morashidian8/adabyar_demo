@@ -1,5 +1,5 @@
 /* ================================================================
-   قصر ادب — رفتار و جلوه‌های متحرک
+   قصر فارسی — رفتار و جلوه‌های متحرک
    ================================================================ */
 (() => {
   const C = window.QASR || {}
@@ -72,7 +72,7 @@
   if (cv && !reduce) {
     const ctx = cv.getContext('2d')
     const LETTERS = 'ابپتثجچحخدذرزژسشصضطظعغفقکگلمنوهی'.split('')
-    const WORDS = ['ادب', 'عشق', 'دانش', 'سخن', 'دل', 'جان', 'مهر', 'نور', 'خرد', 'شعر']
+    const WORDS = ['فارسی', 'قصر', 'ادب', 'عشق', 'دانش', 'سخن', 'دل', 'جان', 'مهر', 'نور', 'خرد', 'شعر']
     let W = 0, H = 0, dpr = 1, stars = [], dust = [], glyphs = [], mx = 0, my = 0, tx = 0, ty = 0, raf = 0, visible = true
     const rnd = (a, b) => a + Math.random() * (b - a)
     const resize = () => {
@@ -273,7 +273,7 @@
 
   /* ── اشتراک‌گذاری ── */
   const url = C.siteUrl || location.href.split('#')[0]
-  const msg = 'ادب‌یار — آموزشِ کاملِ فارسیِ هفتم تا دوازدهم با معنیِ بیت‌به‌بیت، تمرین، آزمون و صدای معلّم:'
+  const msg = 'قصر فارسی (با ملیحه قصرانی) — آموزشِ کاملِ فارسیِ هفتم تا دوازدهم با معنیِ بیت‌به‌بیت، تمرین، آزمون و صدای معلّم:'
   $('#sh-tg').href = `https://t.me/share/url?url=${encodeURIComponent(url)}&text=${encodeURIComponent(msg)}`
   $('#sh-wa').href = `https://wa.me/?text=${encodeURIComponent(msg + '\n' + url)}`
   $('#sh-eitaa').href = `https://eitaa.com/share/url?url=${encodeURIComponent(url)}&text=${encodeURIComponent(msg)}`
@@ -286,7 +286,7 @@
   })
   if (navigator.share) {
     const b = $('#sh-native'); b.hidden = false
-    b.addEventListener('click', () => navigator.share({ title: 'قصر ادب — ادب‌یار', text: msg, url }).catch(() => {}))
+    b.addEventListener('click', () => navigator.share({ title: 'قصر فارسی', text: msg, url }).catch(() => {}))
   }
 
 
@@ -306,15 +306,8 @@
     }))
   }
 
-  /* ── مدرسه ── */
-  const S = C.school || {}
-  if (S.name) { $('#school-title').textContent = S.name; document.title = `قصر ادب — ${S.name}` }
-  if (S.kind) $('#school-kind').textContent = S.kind
-  if (S.about && S.about.length) $('#school-about').innerHTML = S.about.map((p) => `<p>${esc(p)}</p>`).join('')
-  const facts = [['شهر', S.city], ['سالِ تأسیس', S.founded], ['مدیر', S.principal], ['نشانی', S.address], ['تلفن', S.phone]].filter(([, v]) => v)
-  if (facts.length) { const f = $('#school-facts'); f.hidden = false; f.innerHTML = facts.map(([k, v]) => `<li><small>${k}</small><b>${esc(v)}</b></li>`).join('') }
-  if (S.highlights && S.highlights.length) { const h = $('#school-highlights'); h.hidden = false; h.innerHTML = S.highlights.map((x) => `<li>${esc(x)}</li>`).join('') }
-  if (S.name && (S.about || []).length) $('#school-pending').remove()
+  /* ── عکسِ مدرّس ── */
+  if (C.teacherPhoto) $('#t-face').innerHTML = `<img src="${esc(C.teacherPhoto)}" alt="ملیحه قصرانی">`
 
   /* ── تماس ── */
   const P = C.support || {}
@@ -322,7 +315,6 @@
     P.phone && `<li><a href="tel:${esc(P.phone)}">${esc(P.phone)}</a></li>`,
     P.email && `<li><a href="mailto:${esc(P.email)}">${esc(P.email)}</a></li>`,
     P.telegram && `<li><a href="https://t.me/${esc(P.telegram)}" rel="noopener" target="_blank">تلگرام: ${esc(P.telegram)}</a></li>`,
-    S.instagram && `<li><a href="https://instagram.com/${esc(S.instagram)}" rel="noopener" target="_blank">اینستاگرامِ مدرسه</a></li>`,
   ].filter(Boolean)
   if (contacts.length) $('#contact-list').innerHTML = contacts.join('')
 })()
