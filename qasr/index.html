@@ -1,0 +1,407 @@
+<!doctype html>
+<html lang="fa" dir="rtl">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>قصر ادب — ادب‌یار، همراهِ درسِ فارسی</title>
+  <meta name="description" content="قصر ادب، خانهٔ «ادب‌یار» است: آموزشِ کاملِ کتاب‌های فارسیِ پایهٔ هفتم تا دوازدهم با معنیِ بیت‌به‌بیت، آرایه‌ها، دستور، تمرین، آزمون، رفعِ اشکال، صدا و نکته‌های معلّم.">
+  <meta name="theme-color" content="#0b1020">
+  <meta property="og:title" content="قصر ادب — ادب‌یار">
+  <meta property="og:description" content="آموزشِ کاملِ فارسیِ هفتم تا دوازدهم؛ تدریس، تمرین، آزمون و رفعِ اشکال در یک اپ.">
+  <meta property="og:locale" content="fa_IR">
+  <link rel="icon" href="logo.svg" type="image/svg+xml">
+  <link rel="preload" href="fonts/vazirmatn-arabic-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="style.css">
+  <script>
+    document.documentElement.classList.add('js')
+    try { var t = localStorage.getItem('qasr-theme'); if (t) document.documentElement.dataset.theme = t } catch (e) {}
+  </script>
+</head>
+<body>
+  <a class="skip" href="#main">رفتن به محتوا</a>
+
+  <header class="top" id="top">
+    <div class="wrap top-in">
+      <a class="brand" href="#top" aria-label="قصر ادب">
+        <img src="logo.svg" alt="" width="40" height="40">
+        <span><b>قصر ادب</b><small>خانهٔ ادب‌یار</small></span>
+      </a>
+      <nav class="nav" id="nav" aria-label="بخش‌ها">
+        <a href="#features">ویژگی‌ها</a>
+        <a href="#grades">پایه‌ها</a>
+        <a href="#school">مدرسه</a>
+        <a href="#plans">اشتراک</a>
+        <a href="#faq">پرسش‌ها</a>
+      </nav>
+      <div class="top-act">
+        <button class="icon-btn" id="theme" type="button" aria-label="تغییرِ روشن/تاریک">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg>
+        </button>
+        <a class="btn btn-gold btn-sm hide-sm" data-app href="#">ورود به اپ</a>
+        <button class="icon-btn menu-btn" id="menu" type="button" aria-label="فهرست" aria-expanded="false" aria-controls="nav">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main id="main">
+    <!-- ───────── سرآغاز ───────── -->
+    <section class="hero">
+      <canvas class="sky" id="sky" aria-hidden="true"></canvas>
+      <svg class="palace" viewBox="0 0 1200 520" preserveAspectRatio="xMidYMax meet" aria-hidden="true">
+        <defs>
+          <linearGradient id="pg" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0" stop-color="var(--gold-2)"/>
+            <stop offset="1" stop-color="var(--gold)" stop-opacity=".15"/>
+          </linearGradient>
+        </defs>
+        <g class="draw" fill="none" stroke="url(#pg)" stroke-width="2.2" stroke-linejoin="round">
+          <!-- گنبد و طاقِ میانی -->
+          <path d="M470 520V300c0-70 40-118 130-150 90 32 130 80 130 150v220"/>
+          <path d="M520 520V318c0-48 28-82 80-104 52 22 80 56 80 104v202"/>
+          <path d="M500 196c10-70 50-112 100-130 50 18 90 60 100 130"/>
+          <path d="M600 66V22M600 22c-8 0-12-6-12-12s6-10 12-10 12 4 12 10-4 12-12 12"/>
+          <!-- مناره‌ها -->
+          <path d="M380 520V170M410 520V170M372 170h46M380 170l15-46 15 46M395 124V96"/>
+          <path d="M790 520V170M820 520V170M782 170h46M790 170l15-46 15 46M805 124V96"/>
+          <path d="M372 250h46M372 330h46M782 250h46M782 330h46"/>
+          <!-- ایوان‌های کناری -->
+          <path d="M180 520V380c0-40 26-66 70-82 44 16 70 42 70 82v140"/>
+          <path d="M880 520V380c0-40 26-66 70-82 44 16 70 42 70 82v140"/>
+          <path d="M60 520V430c0-26 18-44 46-54 28 10 46 28 46 54v90"/>
+          <path d="M1048 520V430c0-26 18-44 46-54 28 10 46 28 46 54v90"/>
+          <path d="M0 519h1200"/>
+        </g>
+      </svg>
+      <div class="wrap hero-in">
+        <div class="hero-text">
+          <p class="kicker">فارسیِ پایهٔ هفتم تا دوازدهم</p>
+          <h1 class="shine" data-split>قصر ادب</h1>
+          <p class="verse nastaliq" data-words>توانا بُوَد هر که دانا بُوَد<br>ز دانش دلِ پیر بُرنا بُوَد</p>
+          <p class="lead">
+            «ادب‌یار» هر درسِ کتابِ فارسی را مثلِ یک کلاسِ خوب پیش می‌برد:
+            معنیِ بیت‌به‌بیت، آرایه‌ها و دستور، تمرین، آزمونِ زمان‌دار و رفعِ اشکال —
+            همراه با صدا و نکته‌های معلّم.
+          </p>
+          <div class="cta">
+            <a class="btn btn-gold" data-app href="#">ورود به ادب‌یار</a>
+            <a class="btn btn-ghost" href="#how">چطور کار می‌کند؟</a>
+          </div>
+          <ul class="stats" id="stats">
+            <li><b data-count="6">۶</b><span>پایه</span></li>
+            <li><b data-count="111" id="stat-lessons">۱۱۱</b><span>درس</span></li>
+            <li><b data-count="1600" data-plus>+۱٬۶۰۰</b><span>پرسش و تمرین</span></li>
+            <li><b data-count="2100" data-plus>+۲٬۱۰۰</b><span>واژهٔ معنی‌شده</span></li>
+          </ul>
+        </div>
+
+        <!-- نمایِ گوشی -->
+        <div class="phone tilt" aria-label="نمونه‌ای از صفحهٔ درس در اپ" role="img">
+          <div class="phone-in">
+            <div class="ph-bar"><span>ستایش · یادِ تو</span><span class="ph-pill">پایهٔ هفتم</span></div>
+            <div class="ph-tabs"><span class="on">تدریس</span><span>تمرین</span><span>آزمون</span><span>رفع اشکال</span></div>
+            <div class="ph-card">
+              <div class="ph-n">۱</div>
+              <p class="ph-verse nastaliq">ای نامِ تو بهترین سرآغاز<br>بی‌نامِ تو نامه کی کنم باز</p>
+              <p class="ph-mean"><b>معنی:</b> ای خدایی که نامِ تو بهترین آغازِ هر کاری است؛ بی‌نامِ تو چگونه کتاب را آغاز کنم؟</p>
+              <div class="ph-play"><span class="dot"></span><span class="wave"></span><span>صدای معلّم</span></div>
+              <div class="ph-note"><b>نکتهٔ معلّم</b> «نامه» در این‌جا مجاز از کتاب است.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ───────── نوارِ شاعران ───────── -->
+    <div class="marquee" aria-label="شاعران و نویسندگانِ کتاب‌ها">
+      <div class="marquee-track">
+        <span>فردوسی</span><i>✦</i><span>سعدی</span><i>✦</i><span>حافظ</span><i>✦</i><span>مولوی</span><i>✦</i><span>نظامی</span><i>✦</i><span>عطّار</span><i>✦</i><span>ناصرخسرو</span><i>✦</i><span>سنایی</span><i>✦</i><span>پروین اعتصامی</span><i>✦</i><span>نیما یوشیج</span><i>✦</i><span>سهراب سپهری</span><i>✦</i><span>قیصر امین‌پور</span><i>✦</i><span>اخوان ثالث</span><i>✦</i><span>جمال‌زاده</span><i>✦</i><span>شهریار</span><i>✦</i><span>جامی</span><i>✦</i>
+      </div>
+    </div>
+
+    <!-- ───────── چهار بخشِ هر درس ───────── -->
+    <section class="sec" id="how">
+      <div class="wrap">
+        <header class="sec-head reveal">
+          <p class="kicker">هر درس، یک کلاسِ کامل</p>
+          <h2>چهار گام تا تسلّط بر هر درس</h2>
+          <p>دانش‌آموز درس را می‌خواند، تمرین می‌کند، خودش را می‌سنجد و اشکال‌هایش را برطرف می‌کند — به همین ترتیب، در یک جا.</p>
+        </header>
+        <ol class="steps"><svg class="steps-line" aria-hidden="true" preserveAspectRatio="none" viewBox="0 0 100 4"><path d="M100 2H0"/></svg>
+          <li class="step reveal">
+            <span class="step-n">۱</span>
+            <h3>تدریس</h3>
+            <p>متنِ کاملِ درس با معنیِ بیت‌به‌بیت و بند‌به‌بند، معنیِ واژه‌ها، آرایه‌های ادبی، نکته‌های دستوری، قلمروهای زبانی، ادبی و فکری و معرّفیِ شاعر و نویسنده.</p>
+          </li>
+          <li class="step reveal">
+            <span class="step-n">۲</span>
+            <h3>تمرین</h3>
+            <p>پرسش‌های چهارگزینه‌ای، جای‌خالی، وصل‌کردنی و پاسخِ کوتاه با بازخوردِ فوری و توضیحِ پاسخِ درست.</p>
+          </li>
+          <li class="step reveal">
+            <span class="step-n">۳</span>
+            <h3>آزمون</h3>
+            <p>آزمونِ زمان‌دار شبیهِ امتحانِ کلاس، با نمرهٔ قبولی، تصحیحِ خودکار و کارنامه‌ای که پیشرفت را نگه می‌دارد.</p>
+          </li>
+          <li class="step reveal">
+            <span class="step-n">۴</span>
+            <h3>رفعِ اشکال</h3>
+            <p>پرسش‌های پرتکرارِ دانش‌آموزان، اشتباه‌های رایج در امتحان و ترفندهای به‌خاطرسپاری برای هر درس.</p>
+          </li>
+        </ol>
+      </div>
+    </section>
+
+    <!-- ───────── ویژگی‌ها ───────── -->
+    <section class="sec sec-alt" id="features">
+      <div class="wrap">
+        <header class="sec-head reveal">
+          <p class="kicker">چرا ادب‌یار؟</p>
+          <h2>همه‌چیزِ درسِ فارسی، در جیبِ دانش‌آموز</h2>
+        </header>
+        <div class="grid feats">
+          <article class="feat reveal glow">
+            <span class="ico"><svg viewBox="0 0 24 24"><path d="M4 5h7a3 3 0 0 1 3 3v12a2 2 0 0 0-2-2H4zM20 5h-4a3 3 0 0 0-3 3"/></svg></span>
+            <h3>مطابقِ کتابِ درسی</h3>
+            <p>همهٔ درس‌ها، روان‌خوانی‌ها، گنجِ حکمت‌ها و شعرخوانی‌ها، به ترتیبِ فصل‌های کتاب و با شمارهٔ صفحه.</p>
+          </article>
+          <article class="feat reveal glow">
+            <span class="ico"><svg viewBox="0 0 24 24"><path d="M12 3a3 3 0 0 0-3 3v6a3 3 0 0 0 6 0V6a3 3 0 0 0-3-3zM5 11a7 7 0 0 0 14 0M12 18v3"/></svg></span>
+            <h3>صدای معلّم</h3>
+            <p>خوانشِ شعرها و متن‌ها با صدای دبیرِ ادبیات؛ هر بیت جدا پخش می‌شود تا لحن و تلفّظِ درست شنیده شود.</p>
+          </article>
+          <article class="feat reveal glow">
+            <span class="ico"><svg viewBox="0 0 24 24"><path d="M4 20l4-1 11-11-3-3L5 16zM14 6l3 3"/></svg></span>
+            <h3>نکته‌های معلّم</h3>
+            <p>نکته‌های کلاسِ درس، زیرِ همان بیت و بندی که به آن مربوط‌اند؛ همان چیزهایی که در امتحان پرسیده می‌شود.</p>
+          </article>
+          <article class="feat reveal glow">
+            <span class="ico"><svg viewBox="0 0 24 24"><path d="M12 3l2.6 5.3 5.9.9-4.3 4.1 1 5.8L12 16.4 6.8 19.1l1-5.8L3.5 9.2l5.9-.9z"/></svg></span>
+            <h3>آرایه و دستور</h3>
+            <p>تشبیه، استعاره، کنایه، تشخیص، مجاز و… با نمونه‌های خودِ درس؛ و دستورِ زبان از نقشِ کلمه تا انواعِ فعل.</p>
+          </article>
+          <article class="feat reveal glow">
+            <span class="ico"><svg viewBox="0 0 24 24"><path d="M4 19V9M10 19V5M16 19v-7M22 19H2"/></svg></span>
+            <h3>کارنامه و پیشرفت</h3>
+            <p>نمرهٔ آزمون‌ها و درس‌های گذرانده روی همان گوشی ثبت می‌شود تا دانش‌آموز ببیند کجا ایستاده است.</p>
+          </article>
+          <article class="feat reveal glow">
+            <span class="ico"><svg viewBox="0 0 24 24"><path d="M2 8.8a15 15 0 0 1 20 0M5.5 12.3a10 10 0 0 1 13 0M9 15.8a5 5 0 0 1 6 0M12 19.5h.01"/><path d="M3 3l18 18"/></svg></span>
+            <h3>بی‌اینترنت هم کار می‌کند</h3>
+            <p>یک بار که باز شود، روی صفحهٔ گوشی نصب می‌شود و بعد از آن بدونِ اینترنت هم در دسترس است.</p>
+          </article>
+          <article class="feat reveal glow">
+            <span class="ico"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="M20 20l-4-4"/></svg></span>
+            <h3>جست‌وجو در همهٔ درس‌ها</h3>
+            <p>هر واژه، بیت یا آرایه‌ای را در همهٔ درس‌ها پیدا کنید؛ مثلِ یک فرهنگِ لغتِ کوچکِ همیشه‌همراه.</p>
+          </article>
+          <article class="feat reveal glow">
+            <span class="ico"><svg viewBox="0 0 24 24"><rect x="5" y="11" width="14" height="10" rx="2"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/></svg></span>
+            <h3>امن و بی‌تبلیغ</h3>
+            <p>بی‌تبلیغ، بی‌ثبت‌نام و بی‌جمع‌آوریِ اطلاعاتِ شخصی؛ آن‌چه دانش‌آموز انجام می‌دهد فقط روی گوشیِ خودش می‌ماند.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ───────── پایه‌ها ───────── -->
+    <section class="sec" id="grades">
+      <div class="wrap">
+        <header class="sec-head reveal">
+          <p class="kicker">هفتم تا دوازدهم</p>
+          <h2>شش پایه، همهٔ درس‌ها</h2>
+          <p>از «یادِ تو»ی پایهٔ هفتم تا «عشقِ جاودانی»ِ پایهٔ دوازدهم؛ فهرستِ کاملِ هر پایه را باز کنید.</p>
+        </header>
+        <div class="grid grades" id="grade-list">
+          <noscript><p>برای دیدنِ فهرستِ درس‌ها جاوااسکریپت را روشن کنید.</p></noscript>
+        </div>
+      </div>
+    </section>
+
+    <!-- ───────── مدرسه ───────── -->
+    <section class="sec sec-school" id="school">
+      <div class="wrap">
+        <header class="sec-head reveal">
+          <p class="kicker">معرّفیِ مدرسه</p>
+          <h2 id="school-title">مدرسه</h2>
+          <p id="school-kind"></p>
+        </header>
+
+        <div class="school-grid">
+          <div class="school-about reveal" id="school-about">
+            <p>
+              «قصر ادب» در کنارِ کلاسِ درس ساخته شده است، نه به‌جای آن. محتوای ادب‌یار را
+              دبیرِ ادبیاتِ مدرسه بازبینی می‌کند؛ نکته‌هایی که سرِ کلاس گفته می‌شود و صدای خوانشِ
+              شعرها مستقیم به اپ می‌آید تا دانش‌آموز در خانه هم همان درسِ کلاس را مرور کند.
+            </p>
+          </div>
+
+          <ul class="values reveal" id="school-values">
+            <li><b>کلاس‌محور</b><span>اپ دنبالهٔ کلاس است؛ همان درس، همان نکته‌ها، همان معلّم.</span></li>
+            <li><b>یادگیریِ عمیق</b><span>به‌جای حفظِ طوطی‌وار، فهمِ معنا، زیبایی و پیامِ متن.</span></li>
+            <li><b>ارزیابیِ پیوسته</b><span>تمرین و آزمونِ هر درس، تا اشکال پیش از امتحان پیدا شود.</span></li>
+            <li><b>عشق به زبانِ فارسی</b><span>آشنایی با فردوسی، سعدی، مولوی، حافظ و شاعرانِ امروز.</span></li>
+          </ul>
+        </div>
+
+        <ul class="facts reveal" id="school-facts" hidden></ul>
+        <ul class="highlights reveal" id="school-highlights" hidden></ul>
+        <p class="pending reveal" id="school-pending">اطلاعاتِ کاملِ مدرسه — نشانی، تاریخچه، کادرِ آموزشی و راه‌های تماس — به‌زودی در همین بخش قرار می‌گیرد.</p>
+      </div>
+    </section>
+
+    <!-- ───────── نصب ───────── -->
+    <section class="sec sec-alt" id="install">
+      <div class="wrap">
+        <header class="sec-head reveal">
+          <p class="kicker">بی‌نیاز از فروشگاه</p>
+          <h2>نصب روی گوشی در یک دقیقه</h2>
+        </header>
+        <div class="grid two">
+          <article class="card reveal">
+            <h3><span class="tag">اندروید</span> کروم یا سامسونگ‌اینترنت</h3>
+            <ol class="nums">
+              <li>ادب‌یار را در مرورگر باز کنید و رمزِ ورود را بزنید.</li>
+              <li>از منوی ⋮ گزینهٔ «افزودن به صفحهٔ اصلی» یا «نصب برنامه» را بزنید.</li>
+              <li>آیکونِ ادب‌یار کنارِ بقیهٔ برنامه‌ها می‌نشیند.</li>
+            </ol>
+          </article>
+          <article class="card reveal">
+            <h3><span class="tag">آیفون</span> سافاری</h3>
+            <ol class="nums">
+              <li>ادب‌یار را در سافاری باز کنید و رمزِ ورود را بزنید.</li>
+              <li>دکمهٔ «اشتراک‌گذاری» (مربّع و پیکان) را بزنید.</li>
+              <li>«Add to Home Screen» را انتخاب کنید.</li>
+            </ol>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ───────── اشتراک ───────── -->
+    <section class="sec" id="plans">
+      <div class="wrap">
+        <header class="sec-head reveal">
+          <p class="kicker">ساده و منصفانه</p>
+          <h2>اشتراکِ شش‌ماهه</h2>
+          <p>کتابِ هر پایه دو نیم است؛ هر نیم را جدا بخرید و شش ماه از آن استفاده کنید. ستایش و دو درسِ نخستِ هر پایه رایگان است.</p>
+        </header>
+        <div class="grid plans">
+          <article class="plan reveal">
+            <h3>رایگان</h3>
+            <p class="price"><b>بی‌هزینه</b></p>
+            <ul class="checks">
+              <li>ستایش و درس‌های ۱ و ۲ِ هر پایه</li>
+              <li>هر چهار بخش: تدریس، تمرین، آزمون، رفعِ اشکال</li>
+              <li>برای آشنایی پیش از خرید</li>
+            </ul>
+            <a class="btn btn-ghost" data-app href="#">امتحان کنید</a>
+          </article>
+          <article class="plan plan-hot reveal">
+            <span class="ribbon">پیشنهادی</span>
+            <h3>نیم‌سالِ اوّل یا دوم</h3>
+            <p class="price" data-price="half"><b>به‌زودی</b></p>
+            <ul class="checks">
+              <li>نیمِ اوّل: ستایش و درس‌های ۱ تا ۹</li>
+              <li>نیمِ دوم: درس‌های ۱۰ تا ۱۸ و نیایش</li>
+              <li>شش ماه دسترسی از روزِ خرید</li>
+              <li>صدا و نکته‌های معلّم</li>
+            </ul>
+            <a class="btn btn-gold" data-buy href="#plans">خرید</a>
+          </article>
+          <article class="plan reveal">
+            <h3>کلِ کتابِ یک پایه</h3>
+            <p class="price" data-price="full"><b>به‌زودی</b></p>
+            <ul class="checks">
+              <li>هر دو نیم‌سال با هم</li>
+              <li>شش ماه دسترسی از روزِ خرید</li>
+              <li>مناسب برای جمع‌بندیِ پایانِ سال</li>
+            </ul>
+            <a class="btn btn-ghost" data-buy href="#plans">خرید</a>
+          </article>
+        </div>
+        <p class="fine reveal" id="buy-note">فروش از طریقِ کافه‌بازار به‌زودی آغاز می‌شود.</p>
+      </div>
+    </section>
+
+    <!-- ───────── پرسش‌ها ───────── -->
+    <section class="sec sec-alt" id="faq">
+      <div class="wrap narrow">
+        <header class="sec-head reveal">
+          <p class="kicker">پرسش‌های پرتکرار</p>
+          <h2>هر چه باید بدانید</h2>
+        </header>
+        <div class="faq">
+          <details class="reveal">
+            <summary>ادب‌یار با کتابِ امسال یکی است؟</summary>
+            <p>بله. درس‌ها از روی کتاب‌های فارسیِ هفتم تا دوازدهمِ چاپِ جدید ساخته شده‌اند و ترتیبِ فصل‌ها و عنوان‌ها همان ترتیبِ کتاب است.</p>
+          </details>
+          <details class="reveal">
+            <summary>جایِ کلاس و معلّم را می‌گیرد؟</summary>
+            <p>نه؛ ادب‌یار همراهِ کلاس است. نکته‌ها و صدای خوانش را دبیرِ ادبیات فرستاده است تا دانش‌آموز در خانه همان درسِ کلاس را مرور کند.</p>
+          </details>
+          <details class="reveal">
+            <summary>برای استفاده باید ثبت‌نام کنم؟</summary>
+            <p>نه. نامِ کاربری، شمارهٔ تلفن یا ایمیل لازم نیست. پیشرفتِ درسی فقط روی همان گوشی ذخیره می‌شود.</p>
+          </details>
+          <details class="reveal">
+            <summary>اینترنت لازم دارد؟</summary>
+            <p>فقط برای بارِ اوّل و دریافتِ به‌روزرسانی‌ها. بعد از آن درس‌ها، تمرین‌ها و آزمون‌ها بی‌اینترنت هم باز می‌شوند.</p>
+          </details>
+          <details class="reveal">
+            <summary>اشتراکِ شش‌ماهه چطور حساب می‌شود؟</summary>
+            <p>از روزِ خرید، شش ماه به نیمی از کتاب که خریده‌اید دسترسی دارید. پس از آن می‌توانید دوباره تمدید کنید. درس‌های رایگان همیشه باز می‌مانند.</p>
+          </details>
+          <details class="reveal">
+            <summary>روی آیفون هم کار می‌کند؟</summary>
+            <p>بله. ادب‌یار وب‌اپ است و در سافاری باز می‌شود و روی صفحهٔ اصلی نصب می‌شود؛ راهنمای نصب را بالاتر ببینید.</p>
+          </details>
+          <details class="reveal">
+            <summary>اگر در محتوا اشتباهی دیدم چه کنم؟</summary>
+            <p>به ما خبر دهید. محتوا مرتّب با نظرِ معلّم بازبینی و به‌روز می‌شود و نسخهٔ نصب‌شده روی گوشی خودش به‌روز می‌شود.</p>
+          </details>
+        </div>
+      </div>
+    </section>
+
+    <!-- ───────── فراخوان ───────── -->
+    <section class="sec cta-band"><div class="girih" aria-hidden="true"></div>
+      <div class="wrap cta-in reveal">
+        <h2>درِ قصر باز است.</h2>
+        <p>با ستایش و دو درسِ نخستِ هر پایه، رایگان شروع کنید.</p>
+        <a class="btn btn-gold" data-app href="#">ورود به ادب‌یار</a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="foot" id="contact">
+    <div class="wrap foot-in">
+      <div>
+        <a class="brand" href="#top"><img src="logo.svg" alt="" width="36" height="36"><span><b>قصر ادب</b><small>خانهٔ ادب‌یار</small></span></a>
+        <p class="muted">آموزشِ فارسیِ پایهٔ هفتم تا دوازدهم، همراهِ کلاسِ درس.</p>
+      </div>
+      <div>
+        <h4>دسترسیِ سریع</h4>
+        <ul class="links">
+          <li><a data-app href="#">ورود به اپ</a></li>
+          <li><a href="#grades">پایه‌ها</a></li>
+          <li><a href="#school">مدرسه</a></li>
+          <li><a href="privacy.html">حریمِ خصوصی</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>ارتباط با ما</h4>
+        <ul class="links" id="contact-list"><li class="muted">به‌زودی</li></ul>
+      </div>
+    </div>
+    <div class="wrap copy">
+      <span>© <span id="year">۱۴۰۵</span> قصر ادب. همهٔ حقوق محفوظ است.</span>
+      <span class="muted">متن‌های درسی از کتاب‌های فارسیِ وزارتِ آموزش‌وپرورش است.</span>
+    </div>
+  </footer>
+
+  <script src="config.js"></script>
+  <script src="main.js" defer></script>
+</body>
+</html>
