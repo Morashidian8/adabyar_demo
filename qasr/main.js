@@ -153,14 +153,21 @@
   /* ── گوشیِ نمایشی: کج‌شدن با موس و چرخشِ زبانه‌ها ── */
   const phone = $('.phone')
   if (phone && !reduce) {
-    const tabs = $$('.ph-tabs span', phone), tabsBox = $('.ph-tabs', phone)
-    let k = 0
+    const tabs = $$('.ph-tabs span', phone), tabsBox = $('.ph-tabs', phone), screens = $$('.ph-screen', phone)
+    let k = 0, paused = 0
+    const show = (n) => {
+      k = n
+      tabs.forEach((s, i) => s.classList.toggle('on', i === k))
+      screens.forEach((s, i) => s.classList.toggle('on', i === k))
+      tabsBox.style.setProperty('--tab', k)
+    }
+    // زبانه‌ها خودشان می‌چرخند؛ با لمسِ یک زبانه، چرخش کمی صبر می‌کند
+    tabs.forEach((t, i) => t.addEventListener('click', () => { show(i); paused = 2 }))
     setInterval(() => {
       if (document.hidden) return
-      k = (k + 1) % tabs.length
-      tabs.forEach((s, i) => s.classList.toggle('on', i === k))
-      tabsBox.style.setProperty('--tab', k)
-    }, 2600)
+      if (paused > 0) { paused--; return }
+      show((k + 1) % tabs.length)
+    }, 3200)
     if (finePointer) {
       const hero = $('.hero')
       hero.addEventListener('pointermove', (e) => {
