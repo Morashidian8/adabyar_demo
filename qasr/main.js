@@ -289,6 +289,23 @@
     b.addEventListener('click', () => navigator.share({ title: 'قصر ادب — ادب‌یار', text: msg, url }).catch(() => {}))
   }
 
+
+  /* ── نمونه تستِ تیزهوشان ── */
+  const demo = $('#demo')
+  if (demo) {
+    const btns = $$('.demo-opts button', demo)
+    btns.forEach((b) => b.addEventListener('click', () => {
+      const ok = b.hasAttribute('data-ok')
+      b.classList.add(ok ? 'ok' : 'bad')
+      if (ok) {
+        btns.forEach((x) => { x.disabled = true })
+        $('#demo-exp').hidden = false
+      } else {
+        b.disabled = true
+      }
+    }))
+  }
+
   /* ── مدرسه ── */
   const S = C.school || {}
   if (S.name) { $('#school-title').textContent = S.name; document.title = `قصر ادب — ${S.name}` }
