@@ -18,7 +18,11 @@
     const gl = (() => { try { return !!document.createElement('canvas').getContext('webgl2') } catch { return false } })()
     const im = !!(HTMLScriptElement.supports && HTMLScriptElement.supports('importmap'))
     if (!gl || !im) intro.classList.add('no3d')
-    else setTimeout(() => { if (!intro.classList.contains('ready')) intro.classList.add('no3d') }, 9000)
+    else {
+      // تا کتابخانهٔ سه‌بعدی برسد، نامِ قصر آرام می‌تپد؛ فقط اگر واقعاً بالا نیامد کنار می‌رود
+      if (!intro.classList.contains('ready')) intro.classList.add('loading')
+      setTimeout(() => { if (!intro.classList.contains('ready')) { intro.classList.remove('loading'); intro.classList.add('no3d') } }, 40000)
+    }
   }
 
   /* ── پیوندها ── */

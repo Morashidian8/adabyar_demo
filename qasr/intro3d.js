@@ -29,7 +29,7 @@ const lerp = (a, b, p) => a + (b - a) * p
 const rnd = ((s) => () => ((s = (s * 16807) % 2147483647) - 1) / 2147483646)(1404)
 const END = 13.5            // پایانِ سکانس؛ پس از آن صحنه فقط «زنده» می‌ماند
 
-function fail() { section.classList.add('no3d') }
+function fail() { section.classList.remove('loading'); section.classList.add('no3d') }
 
 try { start() } catch (e) { console.warn('intro3d', e); fail() }
 
@@ -187,7 +187,7 @@ async function start() {
   let T = reduce ? END : 0, last = performance.now(), visible = true, raf = 0
   new IntersectionObserver(([e]) => { visible = e.isIntersecting; if (visible && !raf) { last = performance.now(); raf = requestAnimationFrame(loop) } }).observe(section)
   document.getElementById('intro-replay')?.addEventListener('click', () => { T = 0; section.classList.remove('done') })
-  section.classList.add('ready')
+  section.classList.remove('loading'); section.classList.add('ready')
   /* برای بازبینی و گرفتنِ تصویر: رفتن به یک لحظهٔ مشخّص */
   window.__intro = { seek(t) { T = t; update(T); composer.render() } }
 

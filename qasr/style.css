@@ -427,8 +427,8 @@ p { margin: 0; }
 
 
 /* قلّاب و سه وعده */
-.hook { font-size: clamp(20px, 3.4vw, 26px); font-weight: 800; color: #fff; margin: 0 0 10px; }
-.hook b { background: linear-gradient(100deg, #f6e2a8, #e9c46a 50%, #c98a26); -webkit-background-clip: text; background-clip: text; color: transparent; }
+.hook { font-size: clamp(26px, 4.6vw, 40px); line-height: 1.5; font-weight: 900; color: #fff; margin: 0 0 12px; }
+.hook b { display: inline-block; background: linear-gradient(100deg, #f6e2a8, #e9c46a 50%, #c98a26); -webkit-background-clip: text; background-clip: text; color: transparent; }
 .lead b { color: #f3e6c4; }
 .promise { position: relative; z-index: 2; padding-top: clamp(40px, 7vw, 72px); }
 .promise-in { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
@@ -610,6 +610,16 @@ p { margin: 0; }
 .intro-replay { all: unset; cursor: pointer; position: absolute; z-index: 1; inset-inline-start: 16px; bottom: 16px; width: 38px; height: 38px; display: grid; place-items: center; border-radius: 50%; background: rgba(255, 255, 255, .08); border: 1px solid rgba(255, 255, 255, .2); opacity: 0; transition: opacity .6s; }
 .intro.done .intro-replay { opacity: .8; }
 .intro-replay svg { width: 18px; height: 18px; fill: none; stroke: #fff; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+
+
+/* وقتی سرآغازِ سه‌بعدی هست، نام و بیت را همان‌جا دیده‌اند؛ این‌جا تکرار نشود */
+.intro:not(.no3d) ~ .hero .hero-title { display: none; }
+.intro:not(.no3d) ~ .hero { padding-top: clamp(56px, 8vw, 96px); }
+.intro.loading::before {
+  content: "قصر فارسی"; position: absolute; inset: 0; display: grid; place-items: center; z-index: 1;
+  font-family: Lalezar, Vazirmatn; font-size: clamp(36px, 7vw, 64px); color: rgba(233, 196, 106, .35); animation: breathe 1.8s ease-in-out infinite;
+}
+@keyframes breathe { 50% { color: rgba(233, 196, 106, .75) } }
 
 /* ── آشکارشدن با اسکرول ── */
 .js .reveal { opacity: 0; transform: translateY(28px) scale(.98); transition: opacity .8s cubic-bezier(.2, .7, .2, 1), transform .8s cubic-bezier(.2, .7, .2, 1); transition-delay: var(--rd, 0s); }
