@@ -250,6 +250,45 @@
     })
   }).catch(() => { $('#grade-list').innerHTML = '<p>فهرستِ درس‌ها بارگیری نشد.</p>' })
 
+
+  /* ── دانلود ── */
+  const bz = $('#dl-bazaar')
+  if (C.bazaarUrl) { bz.href = C.bazaarUrl; bz.target = '_blank'; bz.rel = 'noopener'; bz.removeAttribute('aria-disabled'); $('#dl-bazaar-sub').textContent = 'دریافت از' }
+  if (C.apkUrl) { const a = $('#dl-apk'); a.href = C.apkUrl; a.hidden = false; a.setAttribute('download', '') }
+  const DLI = '<span class="dl"><svg viewBox="0 0 24 24"><path d="M12 4v11M7 10l5 5 5-5M5 20h14"/></svg></span>'
+  const fileCard = (f) => {
+    const [c1, c2] = COLORS[f.grade] || COLORS[7]
+    return `<a class="file reveal" href="${esc(f.file)}" download style="--c1:${c1};--c2:${c2}">
+      <span class="file-ico" data-g="${f.grade ? fa(f.grade) : '★'}">PDF</span>
+      <span><b>${esc(f.title)}</b><small>${esc(f.note || '')}</small></span>${DLI}</a>`
+  }
+  fetch('downloads/list.json').then((r) => r.json()).catch(() => []).then((auto) => {
+    const files = [
+      ...auto.map((f) => ({ file: `downloads/${f.file}`, grade: f.grade, title: `جزوهٔ ستایش — پایهٔ ${ORD[f.grade]}`, note: `«${f.title}» · ${fa(f.kb)} کیلوبایت` })),
+      ...(C.downloads || []),
+    ]
+    $('#files').innerHTML = files.map(fileCard).join('')
+    watch()
+  })
+
+  /* ── اشتراک‌گذاری ── */
+  const url = C.siteUrl || location.href.split('#')[0]
+  const msg = 'ادب‌یار — آموزشِ کاملِ فارسیِ هفتم تا دوازدهم با معنیِ بیت‌به‌بیت، تمرین، آزمون و صدای معلّم:'
+  $('#sh-tg').href = `https://t.me/share/url?url=${encodeURIComponent(url)}&text=${encodeURIComponent(msg)}`
+  $('#sh-wa').href = `https://wa.me/?text=${encodeURIComponent(msg + '\n' + url)}`
+  $('#sh-eitaa').href = `https://eitaa.com/share/url?url=${encodeURIComponent(url)}&text=${encodeURIComponent(msg)}`
+  const toast = (t) => {
+    let el = $('.toast'); if (!el) { el = document.createElement('div'); el.className = 'toast'; el.setAttribute('role', 'status'); document.body.append(el) }
+    el.textContent = t; el.classList.add('show'); clearTimeout(el._t); el._t = setTimeout(() => el.classList.remove('show'), 2200)
+  }
+  $('#sh-copy').addEventListener('click', async () => {
+    try { await navigator.clipboard.writeText(url); toast('نشانی کپی شد') } catch { prompt('نشانی را کپی کنید:', url) }
+  })
+  if (navigator.share) {
+    const b = $('#sh-native'); b.hidden = false
+    b.addEventListener('click', () => navigator.share({ title: 'قصر ادب — ادب‌یار', text: msg, url }).catch(() => {}))
+  }
+
   /* ── مدرسه ── */
   const S = C.school || {}
   if (S.name) { $('#school-title').textContent = S.name; document.title = `قصر ادب — ${S.name}` }

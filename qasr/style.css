@@ -39,6 +39,7 @@
 }
 
 *, *::before, *::after { box-sizing: border-box; }
+[hidden] { display: none !important; }
 html { scroll-behavior: smooth; scroll-padding-top: 76px; -webkit-text-size-adjust: 100%; }
 body {
   margin: 0; background: var(--bg); color: var(--ink);
@@ -330,6 +331,62 @@ p { margin: 0; }
 .links a:hover { color: var(--gold); }
 .copy { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 8px; border-top: 1px solid var(--line); margin-top: 32px; padding-top: 16px; font-size: 13px; }
 
+
+/* دانلود */
+.dl-app {
+  display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 20px; position: relative; overflow: hidden;
+  background: radial-gradient(120% 140% at 100% 0%, var(--hero-2), var(--hero-1)); color: #fff; border-radius: 26px; padding: 26px; margin-bottom: 26px; box-shadow: var(--shadow);
+}
+.dl-app-text { display: flex; align-items: center; gap: 16px; }
+.dl-app-text img { border-radius: 18px; box-shadow: 0 10px 30px -10px rgba(124, 58, 237, .8); }
+.dl-app h3 { font-size: 22px; }
+.dl-app p { color: #c9c5e6; font-size: 15px; }
+.dl-btns { display: flex; flex-wrap: wrap; gap: 10px; }
+.store {
+  display: inline-flex; align-items: center; gap: 10px; padding: 8px 18px 8px 14px; border-radius: 14px; text-decoration: none;
+  background: rgba(255, 255, 255, .08); border: 1px solid rgba(255, 255, 255, .22); color: #fff; min-height: 56px; transition: transform .25s, background .25s;
+}
+.store:hover { transform: translateY(-2px); background: rgba(255, 255, 255, .15); }
+.store[aria-disabled="true"] { opacity: .65; }
+.store svg { width: 26px; height: 26px; fill: none; stroke: var(--gold-2); stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
+.store span { display: grid; line-height: 1.35; }
+.store small { font-size: 11.5px; opacity: .8; }
+.store b { font-size: 16px; }
+.files { grid-template-columns: repeat(3, 1fr); }
+.file {
+  display: flex; gap: 14px; align-items: center; background: var(--surface); border: 1px solid var(--line); border-radius: 18px; padding: 14px 16px;
+  text-decoration: none; position: relative; overflow: hidden; transition: transform .3s, border-color .3s;
+}
+.file:hover { transform: translateY(-3px); border-color: color-mix(in srgb, var(--gold) 55%, var(--line)); }
+.file-ico {
+  flex: none; width: 52px; height: 62px; border-radius: 8px 18px 8px 8px; display: grid; place-items: end center; padding-bottom: 6px;
+  background: linear-gradient(150deg, var(--c1, var(--brand)), var(--c2, var(--brand-2))); color: #fff; font-weight: 900; font-size: 11px; position: relative;
+}
+.file-ico::before { content: attr(data-g); position: absolute; top: 6px; inset-inline: 0; text-align: center; font-family: Lalezar, Vazirmatn; font-size: 22px; font-weight: 400; }
+.file b { display: block; font-size: 15.5px; }
+.file small { color: var(--muted); font-size: 12.5px; }
+.file .dl { margin-inline-start: auto; flex: none; width: 38px; height: 38px; border-radius: 50%; display: grid; place-items: center; background: color-mix(in srgb, var(--gold-2) 25%, transparent); color: var(--gold); }
+.file .dl svg { width: 18px; height: 18px; fill: none; stroke: currentColor; stroke-width: 2.4; stroke-linecap: round; stroke-linejoin: round; transition: transform .3s; }
+.file:hover .dl svg { transform: translateY(2px); animation: bob .8s ease-in-out infinite alternate; }
+@keyframes bob { to { transform: translateY(-2px) } }
+
+/* اشتراک‌گذاری */
+.share {
+  display: grid; grid-template-columns: 1fr auto; gap: 28px; align-items: center; background: var(--surface); border: 1px solid var(--line);
+  border-radius: 26px; padding: clamp(22px, 4vw, 40px); box-shadow: var(--shadow); position: relative; overflow: hidden;
+}
+.share::before { content: ""; position: absolute; width: 340px; height: 340px; border-radius: 50%; inset-inline-end: -120px; top: -160px; background: radial-gradient(color-mix(in srgb, var(--gold-2) 30%, transparent), transparent 70%); pointer-events: none; }
+.share h2 { font-size: clamp(22px, 3.6vw, 32px); font-weight: 900; margin: 4px 0 8px; }
+.share-text > p:not(.kicker) { color: var(--ink-2); }
+.share-btns { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 18px; }
+.sbtn { font: inherit; font-weight: 700; font-size: 14.5px; padding: 8px 18px; border-radius: 99px; border: 1.5px solid var(--line); background: var(--bg); color: var(--ink); text-decoration: none; cursor: pointer; transition: border-color .2s, transform .2s; }
+.sbtn:hover { border-color: var(--gold); transform: translateY(-2px); }
+.qr { margin: 0; display: grid; justify-items: center; gap: 8px; position: relative; }
+.qr img { background: #fff; padding: 10px; border-radius: 18px; box-shadow: var(--shadow); border: 1px solid var(--line); }
+.qr figcaption a { font-size: 13px; color: var(--gold); font-weight: 700; }
+.toast { position: fixed; bottom: 24px; left: 50%; transform: translate(-50%, 20px); opacity: 0; background: var(--ink); color: var(--bg); padding: 10px 20px; border-radius: 99px; font-weight: 700; z-index: 80; transition: .3s; pointer-events: none; }
+.toast.show { opacity: 1; transform: translate(-50%, 0); }
+
 /* ── آشکارشدن با اسکرول ── */
 .js .reveal { opacity: 0; transform: translateY(28px) scale(.98); transition: opacity .8s cubic-bezier(.2, .7, .2, 1), transform .8s cubic-bezier(.2, .7, .2, 1); transition-delay: var(--rd, 0s); }
 .js .reveal.in { opacity: 1; transform: none; }
@@ -340,7 +397,7 @@ p { margin: 0; }
 /* ── واکنش‌گرا ── */
 @media (max-width: 1000px) {
   .feats { grid-template-columns: repeat(2, 1fr); }
-  .grades { grid-template-columns: repeat(2, 1fr); }
+  .grades, .files { grid-template-columns: repeat(2, 1fr); }
   .steps { grid-template-columns: repeat(2, 1fr); }
   .steps-line { display: none; }
 }
@@ -366,7 +423,12 @@ p { margin: 0; }
 }
 @media (max-width: 560px) {
   .hide-sm { display: none; }
-  .feats, .grades, .steps, .two, .values { grid-template-columns: 1fr; }
+  .feats, .grades, .steps, .two, .values, .files { grid-template-columns: 1fr; }
+  .share { grid-template-columns: 1fr; text-align: center; }
+  .share-btns { justify-content: center; }
+  .dl-app { justify-content: center; text-align: center; }
+  .dl-app-text { flex-direction: column; }
+  .dl-btns { justify-content: center; }
   .palace { opacity: .4; bottom: 30px; }
   .brand small { display: none; }
 }

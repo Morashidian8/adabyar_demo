@@ -9,6 +9,13 @@
   <meta property="og:title" content="قصر ادب — ادب‌یار">
   <meta property="og:description" content="آموزشِ کاملِ فارسیِ هفتم تا دوازدهم؛ تدریس، تمرین، آزمون و رفعِ اشکال در یک اپ.">
   <meta property="og:locale" content="fa_IR">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://morashidian8.github.io/adabyar_demo/qasr/">
+  <meta property="og:image" content="https://morashidian8.github.io/adabyar_demo/qasr/og.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="canonical" href="https://morashidian8.github.io/adabyar_demo/qasr/">
   <link rel="icon" href="logo.svg" type="image/svg+xml">
   <link rel="preload" href="fonts/vazirmatn-arabic-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="stylesheet" href="style.css">
@@ -29,6 +36,7 @@
       <nav class="nav" id="nav" aria-label="بخش‌ها">
         <a href="#features">ویژگی‌ها</a>
         <a href="#grades">پایه‌ها</a>
+        <a href="#download">دانلود</a>
         <a href="#school">مدرسه</a>
         <a href="#plans">اشتراک</a>
         <a href="#faq">پرسش‌ها</a>
@@ -219,6 +227,43 @@
       </div>
     </section>
 
+    <!-- ───────── دانلود ───────── -->
+    <section class="sec sec-alt" id="download">
+      <div class="wrap">
+        <header class="sec-head reveal">
+          <p class="kicker">دانلود</p>
+          <h2>اپ را بگیرید، جزوه را رایگان دانلود کنید</h2>
+          <p>جزوهٔ چاپیِ ستایشِ هر پایه با متن، معنیِ بیت‌به‌بیت، واژه‌نامه، آرایه‌ها و جمع‌بندیِ امتحانی — هدیهٔ قصر ادب.</p>
+        </header>
+
+        <div class="dl-app reveal glow">
+          <div class="dl-app-text">
+            <img src="logo.svg" alt="" width="72" height="72">
+            <div>
+              <h3>اپلیکیشنِ ادب‌یار</h3>
+              <p>اندروید، آیفون و کامپیوتر — بی‌تبلیغ، بی‌ثبت‌نام، آفلاین.</p>
+            </div>
+          </div>
+          <div class="dl-btns">
+            <a class="store" id="dl-bazaar" href="#plans" aria-disabled="true">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 8h12l-1 12H7zM9 8V6a3 3 0 0 1 6 0v2"/></svg>
+              <span><small id="dl-bazaar-sub">به‌زودی در</small><b>کافه‌بازار</b></span>
+            </a>
+            <a class="store" id="dl-apk" href="#" hidden>
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3v12M7 10l5 5 5-5M5 21h14"/></svg>
+              <span><small>دانلودِ مستقیم</small><b>فایلِ نصبی اندروید</b></span>
+            </a>
+            <a class="store" data-app href="#">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="6" y="2" width="12" height="20" rx="3"/><path d="M11 18h2"/></svg>
+              <span><small>همین حالا</small><b>نصب وب‌اپ</b></span>
+            </a>
+          </div>
+        </div>
+
+        <div class="grid files" id="files"></div>
+      </div>
+    </section>
+
     <!-- ───────── مدرسه ───────── -->
     <section class="sec sec-school" id="school">
       <div class="wrap">
@@ -362,6 +407,28 @@
             <p>به ما خبر دهید. محتوا مرتّب با نظرِ معلّم بازبینی و به‌روز می‌شود و نسخهٔ نصب‌شده روی گوشی خودش به‌روز می‌شود.</p>
           </details>
         </div>
+      </div>
+    </section>
+
+    <!-- ───────── معرّفی به دوستان ───────── -->
+    <section class="sec" id="share">
+      <div class="wrap share reveal">
+        <div class="share-text">
+          <p class="kicker">معرّفی به دوستان</p>
+          <h2>ادب‌یار را به هم‌کلاسی‌هایتان معرّفی کنید</h2>
+          <p>نشانیِ سایت را در گروهِ کلاس بفرستید، یا کدِ QR را برای تابلوی اعلاناتِ مدرسه چاپ کنید.</p>
+          <div class="share-btns">
+            <a class="sbtn" id="sh-tg" target="_blank" rel="noopener">تلگرام</a>
+            <a class="sbtn" id="sh-wa" target="_blank" rel="noopener">واتس‌اپ</a>
+            <a class="sbtn" id="sh-eitaa" target="_blank" rel="noopener">ایتا</a>
+            <button class="sbtn" id="sh-copy" type="button">کپیِ نشانی</button>
+            <button class="sbtn" id="sh-native" type="button" hidden>اشتراک‌گذاری…</button>
+          </div>
+        </div>
+        <figure class="qr">
+          <img src="qr.svg" alt="کدِ QRِ سایتِ قصر ادب" width="180" height="180">
+          <figcaption><a href="qr.svg" download="qasr-adab-qr.svg">دانلودِ کدِ QR برای چاپ</a></figcaption>
+        </figure>
       </div>
     </section>
 

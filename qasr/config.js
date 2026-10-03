@@ -7,6 +7,13 @@ window.QASR = {
   appUrl: 'https://morashidian8.github.io/adabyar_demo/',
   /* نشانیِ صفحهٔ برنامه در کافه‌بازار — وقتی منتشر شد پر شود */
   bazaarUrl: '',
+  /* نشانیِ فایلِ نصبیِ اندروید (APK) برای دانلودِ مستقیم — اگر خالی باشد دکمه‌اش پنهان است */
+  apkUrl: '',
+  /* نشانیِ عمومیِ همین سایت — برای دکمه‌های اشتراک‌گذاری */
+  siteUrl: 'https://morashidian8.github.io/adabyar_demo/qasr/',
+  /* فایل‌های دانلودیِ دیگر (جز جزوه‌های خودکار) — فایل را در site/downloads/ بگذارید:
+     { title: 'نمونه‌سؤالِ امتحانِ نوبتِ اوّل — نهم', file: 'downloads/nemoone-9.pdf', grade: 9, note: '' } */
+  downloads: [],
 
   /* قیمت‌ها به تومان — null یعنی «به‌زودی اعلام می‌شود» */
   prices: {
